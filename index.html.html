@@ -84,10 +84,18 @@ img{max-width:100%;display:block}
 .trust-text{font-size:13px;color:var(--mid)}
 .trust-text strong{color:var(--ink)}
 @media(max-width:900px){
+  .hero{background:#0A0A0A;padding-bottom:100px}
   .hero-layout{grid-template-columns:1fr;min-height:unset}
-  .hero-right{display:block;position:absolute;inset:0;min-height:unset;z-index:0;opacity:.75}
+  .hero-right{display:block;position:absolute;inset:0;min-height:unset;z-index:0;opacity:.35}
   .hero-left{padding-right:0;position:relative;z-index:2}
-  .hero-photo::after{background:linear-gradient(to bottom,rgba(247,247,245,.72) 0%,rgba(247,247,245,.3) 55%,rgba(247,247,245,.1) 100%)}
+  .hero-photo::after{background:linear-gradient(to bottom,rgba(10,10,10,.7) 0%,rgba(10,10,10,.3) 60%,rgba(10,10,10,.1) 100%)}
+  .hero-title{color:#fff}
+  .hero-sub{color:rgba(255,255,255,.65)}
+  .hero-label{color:var(--accent)}
+  .hero-urg{color:var(--accent)}
+  .trust-text{color:rgba(255,255,255,.55)}
+  .trust-text strong{color:#fff}
+  .btn-sec{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.2);color:#fff}
 }
 
 /* SECTION BASE */
