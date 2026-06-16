@@ -84,8 +84,8 @@ img{max-width:100%;display:block}
 .trust-text{font-size:13px;color:var(--mid)}
 .trust-text strong{color:var(--ink)}
 @media(max-width:900px){
-  .hero-layout{grid-template-columns:1fr}
-  .hero-right{display:none}
+  .hero-layout{grid-template-columns:1fr;min-height:unset}
+  .hero-right{display:block;height:60vw;min-height:220px;max-height:360px;margin:36px -28px -80px}
   .hero-left{padding-right:0}
 }
 
@@ -277,12 +277,12 @@ img{max-width:100%;display:block}
 .ft-soc a{width:34px;height:34px;border-radius:6px;border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:#555;font-size:14px;transition:var(--ease)}
 .ft-soc a:hover{border-color:var(--accent);color:var(--accent)}
 
-/* GRAIN + GRADIENTES */
-body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");background-size:300px 300px;opacity:.055;mix-blend-mode:soft-light}
-.portfolio-sec{background:linear-gradient(180deg,#1A1A1A 0%,#080808 100%)}
-.form-sec{background:linear-gradient(160deg,#141414 0%,#0A0A0A 100%)}
-.cta-mid{background:linear-gradient(135deg,#1C1C1C 0%,#080808 100%)}
-.footer{background:linear-gradient(180deg,#0F0F0F 0%,#050505 100%)}
+/* GRAIN CINEMATOGRÁFICO + GLOW — grain animado via canvas JS */
+.portfolio-sec{background:radial-gradient(ellipse 80% 60% at 15% 85%,rgba(200,212,0,.09) 0%,transparent 100%),radial-gradient(ellipse 50% 40% at 85% 15%,rgba(200,212,0,.05) 0%,transparent 100%),linear-gradient(180deg,#1A1A1A 0%,#070707 100%)}
+.cta-mid{background:radial-gradient(ellipse 60% 100% at 5% 50%,rgba(200,212,0,.1) 0%,transparent 100%),linear-gradient(135deg,#1C1C1C 0%,#080808 100%)}
+.form-sec{background:radial-gradient(ellipse 70% 60% at 92% 12%,rgba(200,212,0,.08) 0%,transparent 100%),radial-gradient(ellipse 40% 80% at 4% 88%,rgba(200,212,0,.05) 0%,transparent 100%),linear-gradient(160deg,#141414 0%,#0A0A0A 100%)}
+.footer{background:radial-gradient(ellipse 70% 80% at 50% 0%,rgba(200,212,0,.05) 0%,transparent 100%),linear-gradient(180deg,#0F0F0F 0%,#050505 100%)}
+.hero-photo::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 70% at 75% 60%,rgba(200,212,0,.18) 0%,transparent 70%);z-index:1;pointer-events:none}
 .sec-light{background:linear-gradient(180deg,#FAFAFA 0%,#EBEBEA 100%)}
 .hero{background:linear-gradient(160deg,#F9F9F7 0%,#EBEBEA 100%)}
 
@@ -905,6 +905,37 @@ document.querySelectorAll('.faq-q').forEach(btn=>{
     if(!wasOpen)item.classList.add('open');
   });
 });
+
+// Grain cinematográfico animado
+(function(){
+  var c=document.createElement('canvas');
+  c.style.cssText='position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9998;opacity:.1;mix-blend-mode:soft-light';
+  document.body.appendChild(c);
+  var ctx=c.getContext('2d');
+  var W,H,img;
+  function resize(){
+    W=c.width=window.innerWidth;
+    H=c.height=window.innerHeight;
+    img=ctx.createImageData(W,H);
+  }
+  resize();
+  window.addEventListener('resize',resize);
+  var last=0;
+  function tick(t){
+    if(t-last>1000/16){
+      var d=img.data;
+      for(var i=0;i<d.length;i+=4){
+        var v=Math.random()*255|0;
+        d[i]=d[i+1]=d[i+2]=v;
+        d[i+3]=255;
+      }
+      ctx.putImageData(img,0,0);
+      last=t;
+    }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+})();
 </script>
 </body>
 </html>
