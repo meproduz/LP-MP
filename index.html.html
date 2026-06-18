@@ -108,6 +108,8 @@ img{max-width:100%;display:block}
 
 /* PORTFOLIO CARROSSEL */
 .portfolio-sec{background:#111;padding:100px 0;overflow:hidden}
+.vid-block{cursor:pointer}
+.vid-thumb iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .portfolio-sec .sec-label{color:rgba(200,212,0,.8)}
 .portfolio-sec .sec-title{color:white}
 .portfolio-sec .sec-sub{color:#777}
@@ -214,12 +216,24 @@ img{max-width:100%;display:block}
 @keyframes reel{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* NUMEROS */
+.nums-sec{padding:80px 0;background:radial-gradient(ellipse 80% 60% at 50% 110%,rgba(200,212,0,.08) 0%,transparent 100%),linear-gradient(180deg,#111 0%,#080808 100%)}
 .nums-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
-.num-item{padding:48px 36px;text-align:center;border-right:1px solid var(--border)}
+.num-item{padding:48px 36px;text-align:center;border-right:1px solid rgba(255,255,255,.07)}
 .num-item:last-child{border-right:none}
-.num-val{font-size:54px;font-weight:900;letter-spacing:-.04em;color:var(--black);line-height:1;display:block;margin-bottom:8px}
+.num-val{font-size:60px;font-weight:900;letter-spacing:-.04em;color:#fff;line-height:1;display:block;margin-bottom:8px}
 .num-val em{font-style:normal;color:var(--accent)}
-.num-label{font-size:14px;color:var(--mid);font-weight:400}
+.num-label{font-size:13px;color:rgba(255,255,255,.4);font-weight:500;letter-spacing:.04em;text-transform:uppercase}
+.seg-tags{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:14px}
+.seg-tag{font-size:9px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:4px 10px;border:1px solid rgba(200,212,0,.25);border-radius:20px;color:rgba(200,212,0,.6)}
+
+/* LOGO BAR */
+.logo-bar{background:#080808;padding:52px 0;overflow:hidden;border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05)}
+.logo-bar-label{text-align:center;font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:36px}
+.logo-track-wrap{overflow:hidden;-webkit-mask:linear-gradient(to right,transparent 0%,black 7%,black 93%,transparent 100%);mask:linear-gradient(to right,transparent 0%,black 7%,black 93%,transparent 100%)}
+.logo-track{display:flex;align-items:center;gap:16px;width:max-content;animation:reel 36s linear infinite}
+.logo-track:hover{animation-play-state:paused}
+.logo-item{height:72px;width:auto;max-width:160px;object-fit:cover;display:block;border-radius:14px;flex-shrink:0;transition:opacity .3s}
+.logo-item:hover{opacity:.85}
 
 /* CTA MID */
 .cta-mid{background:var(--black);padding:80px 0}
@@ -299,8 +313,8 @@ img{max-width:100%;display:block}
 @media(max-width:1024px){
   .nums-grid{grid-template-columns:repeat(2,1fr)}
   .num-item:nth-child(2){border-right:none}
-  .num-item:nth-child(3){border-top:1px solid var(--border)}
-  .num-item:nth-child(4){border-top:1px solid var(--border);border-right:none}
+  .num-item:nth-child(3){border-top:1px solid rgba(255,255,255,.07)}
+  .num-item:nth-child(4){border-top:1px solid rgba(255,255,255,.07);border-right:none}
   .capital-grid{flex-direction:column}
   .form-grid{grid-template-columns:1fr;gap:56px}
   .footer-in{grid-template-columns:1fr 1fr;gap:40px}
@@ -385,15 +399,45 @@ img{max-width:100%;display:block}
         </div>
       </div>
 
-      <!-- COLUNA DIREITA — vídeo com degradê -->
+      <!-- COLUNA DIREITA — foto equipe -->
       <div class="hero-right">
         <div class="hero-photo">
-          <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block">
-            <source src="assets/bg-capital.mp4" type="video/mp4">
-          </video>
+          <img src="assets/DSC04884-Aprimorado-NR.jpg" alt="Equipe Me Produz">
         </div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- LOGO BAR -->
+<section class="logo-bar">
+  <p class="logo-bar-label">Marcas que já confiaram na Me Produz</p>
+  <div class="logo-track-wrap">
+    <div class="logo-track">
+      <img class="logo-item" src="assets/logo-auribix.jpg" alt="Auribix">
+      <img class="logo-item" src="assets/logo-jhinox.png" alt="JH Inox">
+      <img class="logo-item" src="assets/logo-saertex.webp" alt="SAERTEX">
+      <img class="logo-item" src="assets/logo-scuderia.jpg" alt="Scuderia">
+      <img class="logo-item" src="assets/logo-skarrara.png" alt="Skarrara">
+      <img class="logo-item" src="assets/logo-cardamo.jpg" alt="Cardamô">
+      <img class="logo-item" src="assets/logo-melhor-sorriso.jpg" alt="Melhor Sorriso">
+      <img class="logo-item" src="assets/logo-smoo.png" alt="Smoo">
+      <img class="logo-item" src="assets/logo-ibira.jpg" alt="Ibirá">
+      <img class="logo-item" src="assets/logo-grafica-mil.jpg" alt="Gráfica Mil">
+      <img class="logo-item" src="assets/logo-sorria.jpg" alt="Sorria">
+      <!-- SET 2 — loop infinito -->
+      <img class="logo-item" src="assets/logo-auribix.jpg" alt="Auribix">
+      <img class="logo-item" src="assets/logo-jhinox.png" alt="JH Inox">
+      <img class="logo-item" src="assets/logo-saertex.webp" alt="SAERTEX">
+      <img class="logo-item" src="assets/logo-scuderia.jpg" alt="Scuderia">
+      <img class="logo-item" src="assets/logo-skarrara.png" alt="Skarrara">
+      <img class="logo-item" src="assets/logo-cardamo.jpg" alt="Cardamô">
+      <img class="logo-item" src="assets/logo-melhor-sorriso.jpg" alt="Melhor Sorriso">
+      <img class="logo-item" src="assets/logo-smoo.png" alt="Smoo">
+      <img class="logo-item" src="assets/logo-ibira.jpg" alt="Ibirá">
+      <img class="logo-item" src="assets/logo-grafica-mil.jpg" alt="Gráfica Mil">
+      <img class="logo-item" src="assets/logo-sorria.jpg" alt="Sorria">
     </div>
   </div>
 </section>
@@ -410,54 +454,150 @@ img{max-width:100%;display:block}
     <div class="ptv-track">
 
       <!-- === SET 1 === -->
-      <a class="vid-block wide" href="https://www.youtube.com/watch?v=kceFOhCC2ng" target="_blank" rel="noopener">
+      <div class="vid-block wide" data-yt="kceFOhCC2ng">
         <div class="vid-thumb wide">
           <img src="https://img.youtube.com/vi/kceFOhCC2ng/maxresdefault.jpg" alt="JH Inox">
           <div class="vid-overlay"><div class="vid-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
         </div>
-        <div class="vid-info"><div class="vid-tag">Indústria · B2B</div><div class="vid-title">JH Inox: Vídeo estratégico do processo produtivo</div></div>
-      </a>
+        <div class="vid-info"><div class="vid-tag">Indústria · B2B</div><div class="vid-title">JH Inox: Processo produtivo</div></div>
+      </div>
 
-      <a class="vid-block tall" href="https://www.youtube.com/shorts/WpwlPIrdKg0" target="_blank" rel="noopener">
+      <div class="vid-block tall" data-yt="tknkFUBAM9s">
         <div class="vid-thumb vertical">
-          <img src="https://img.youtube.com/vi/WpwlPIrdKg0/maxresdefault.jpg" alt="The One">
+          <img src="https://img.youtube.com/vi/tknkFUBAM9s/hqdefault.jpg" alt="Short Me Produz">
           <div class="vid-overlay"><div class="vid-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
         </div>
-        <div class="vid-info"><div class="vid-tag">Depoimento · Short</div><div class="vid-title">The One: Depoimento de cliente</div></div>
-      </a>
+        <div class="vid-info"><div class="vid-tag">Short · Conteúdo</div><div class="vid-title">Conteúdo Me Produz</div></div>
+      </div>
 
-      <a class="vid-block wide" href="https://www.youtube.com/watch?v=PP7JtIVhAZA" target="_blank" rel="noopener">
+      <div class="vid-block tall" data-yt="nwuJdWXhgtY">
+        <div class="vid-thumb vertical">
+          <img src="https://img.youtube.com/vi/nwuJdWXhgtY/hqdefault.jpg" alt="Short Me Produz">
+          <div class="vid-overlay"><div class="vid-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+        </div>
+        <div class="vid-info"><div class="vid-tag">Short · Conteúdo</div><div class="vid-title">Conteúdo Me Produz</div></div>
+      </div>
+
+      <div class="vid-block wide" data-yt="PP7JtIVhAZA">
         <div class="vid-thumb wide">
-          <img src="https://img.youtube.com/vi/PP7JtIVhAZA/maxresdefault.jpg" alt="SAERTEX GLOBAL">
+          <img src="https://img.youtube.com/vi/PP7JtIVhAZA/maxresdefault.jpg" alt="SAERTEX">
           <div class="vid-overlay"><div class="vid-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
         </div>
-        <div class="vid-info"><div class="vid-tag">Indústria · Produto</div><div class="vid-title">SAERTEX GLOBAL: Desenvolvimento de produto</div></div>
-      </a>
+        <div class="vid-info"><div class="vid-tag">Indústria · Produto</div><div class="vid-title">SAERTEX: Desenvolvimento de produto</div></div>
+      </div>
 
-      <!-- === SET 2 (loop) === -->
-      <a class="vid-block wide" href="https://www.youtube.com/watch?v=kceFOhCC2ng" target="_blank" rel="noopener">
+      <div class="vid-block tall" data-yt="SdBfN0TEFJA">
+        <div class="vid-thumb vertical">
+          <img src="https://img.youtube.com/vi/SdBfN0TEFJA/hqdefault.jpg" alt="Short Me Produz">
+          <div class="vid-overlay"><div class="vid-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+        </div>
+        <div class="vid-info"><div class="vid-tag">Short · Conteúdo</div><div class="vid-title">Conteúdo Me Produz</div></div>
+      </div>
+
+      <div class="vid-block tall" data-yt="Yddmswp3FLc">
+        <div class="vid-thumb vertical">
+          <img src="https://img.youtube.com/vi/Yddmswp3FLc/hqdefault.jpg" alt="Short Me Produz">
+          <div class="vid-overlay"><div class="vid-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+        </div>
+        <div class="vid-info"><div class="vid-tag">Short · Conteúdo</div><div class="vid-title">Conteúdo Me Produz</div></div>
+      </div>
+
+      <div class="vid-block tall" data-yt="WpwlPIrdKg0">
+        <div class="vid-thumb vertical">
+          <img src="https://img.youtube.com/vi/WpwlPIrdKg0/hqdefault.jpg" alt="The One">
+          <div class="vid-overlay"><div class="vid-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+        </div>
+        <div class="vid-info"><div class="vid-tag">Depoimento · Short</div><div class="vid-title">The One: Depoimento</div></div>
+      </div>
+
+      <div class="vid-block tall" data-yt="W6GCYbwlX_Q">
+        <div class="vid-thumb vertical">
+          <img src="https://img.youtube.com/vi/W6GCYbwlX_Q/hqdefault.jpg" alt="Short Me Produz">
+          <div class="vid-overlay"><div class="vid-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+        </div>
+        <div class="vid-info"><div class="vid-tag">Short · Conteúdo</div><div class="vid-title">Conteúdo Me Produz</div></div>
+      </div>
+
+      <div class="vid-block tall" data-yt="9nwurFFQdOQ">
+        <div class="vid-thumb vertical">
+          <img src="https://img.youtube.com/vi/9nwurFFQdOQ/hqdefault.jpg" alt="Short Me Produz">
+          <div class="vid-overlay"><div class="vid-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+        </div>
+        <div class="vid-info"><div class="vid-tag">Short · Conteúdo</div><div class="vid-title">Conteúdo Me Produz</div></div>
+      </div>
+
+      <!-- === SET 2 — loop infinito === -->
+      <div class="vid-block wide" data-yt="kceFOhCC2ng">
         <div class="vid-thumb wide">
           <img src="https://img.youtube.com/vi/kceFOhCC2ng/maxresdefault.jpg" alt="JH Inox">
           <div class="vid-overlay"><div class="vid-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
         </div>
-        <div class="vid-info"><div class="vid-tag">Indústria · B2B</div><div class="vid-title">JH Inox: Vídeo estratégico do processo produtivo</div></div>
-      </a>
+        <div class="vid-info"><div class="vid-tag">Indústria · B2B</div><div class="vid-title">JH Inox: Processo produtivo</div></div>
+      </div>
 
-      <a class="vid-block tall" href="https://www.youtube.com/shorts/WpwlPIrdKg0" target="_blank" rel="noopener">
+      <div class="vid-block tall" data-yt="tknkFUBAM9s">
         <div class="vid-thumb vertical">
-          <img src="https://img.youtube.com/vi/WpwlPIrdKg0/maxresdefault.jpg" alt="The One">
+          <img src="https://img.youtube.com/vi/tknkFUBAM9s/hqdefault.jpg" alt="Short Me Produz">
           <div class="vid-overlay"><div class="vid-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
         </div>
-        <div class="vid-info"><div class="vid-tag">Depoimento · Short</div><div class="vid-title">The One: Depoimento de cliente</div></div>
-      </a>
+        <div class="vid-info"><div class="vid-tag">Short · Conteúdo</div><div class="vid-title">Conteúdo Me Produz</div></div>
+      </div>
 
-      <a class="vid-block wide" href="https://www.youtube.com/watch?v=PP7JtIVhAZA" target="_blank" rel="noopener">
-        <div class="vid-thumb wide">
-          <img src="https://img.youtube.com/vi/PP7JtIVhAZA/maxresdefault.jpg" alt="SAERTEX GLOBAL">
+      <div class="vid-block tall" data-yt="nwuJdWXhgtY">
+        <div class="vid-thumb vertical">
+          <img src="https://img.youtube.com/vi/nwuJdWXhgtY/hqdefault.jpg" alt="Short Me Produz">
           <div class="vid-overlay"><div class="vid-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
         </div>
-        <div class="vid-info"><div class="vid-tag">Indústria · Produto</div><div class="vid-title">SAERTEX GLOBAL: Desenvolvimento de produto</div></div>
-      </a>
+        <div class="vid-info"><div class="vid-tag">Short · Conteúdo</div><div class="vid-title">Conteúdo Me Produz</div></div>
+      </div>
+
+      <div class="vid-block wide" data-yt="PP7JtIVhAZA">
+        <div class="vid-thumb wide">
+          <img src="https://img.youtube.com/vi/PP7JtIVhAZA/maxresdefault.jpg" alt="SAERTEX">
+          <div class="vid-overlay"><div class="vid-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+        </div>
+        <div class="vid-info"><div class="vid-tag">Indústria · Produto</div><div class="vid-title">SAERTEX: Desenvolvimento de produto</div></div>
+      </div>
+
+      <div class="vid-block tall" data-yt="SdBfN0TEFJA">
+        <div class="vid-thumb vertical">
+          <img src="https://img.youtube.com/vi/SdBfN0TEFJA/hqdefault.jpg" alt="Short Me Produz">
+          <div class="vid-overlay"><div class="vid-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+        </div>
+        <div class="vid-info"><div class="vid-tag">Short · Conteúdo</div><div class="vid-title">Conteúdo Me Produz</div></div>
+      </div>
+
+      <div class="vid-block tall" data-yt="Yddmswp3FLc">
+        <div class="vid-thumb vertical">
+          <img src="https://img.youtube.com/vi/Yddmswp3FLc/hqdefault.jpg" alt="Short Me Produz">
+          <div class="vid-overlay"><div class="vid-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+        </div>
+        <div class="vid-info"><div class="vid-tag">Short · Conteúdo</div><div class="vid-title">Conteúdo Me Produz</div></div>
+      </div>
+
+      <div class="vid-block tall" data-yt="WpwlPIrdKg0">
+        <div class="vid-thumb vertical">
+          <img src="https://img.youtube.com/vi/WpwlPIrdKg0/hqdefault.jpg" alt="The One">
+          <div class="vid-overlay"><div class="vid-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+        </div>
+        <div class="vid-info"><div class="vid-tag">Depoimento · Short</div><div class="vid-title">The One: Depoimento</div></div>
+      </div>
+
+      <div class="vid-block tall" data-yt="W6GCYbwlX_Q">
+        <div class="vid-thumb vertical">
+          <img src="https://img.youtube.com/vi/W6GCYbwlX_Q/hqdefault.jpg" alt="Short Me Produz">
+          <div class="vid-overlay"><div class="vid-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+        </div>
+        <div class="vid-info"><div class="vid-tag">Short · Conteúdo</div><div class="vid-title">Conteúdo Me Produz</div></div>
+      </div>
+
+      <div class="vid-block tall" data-yt="9nwurFFQdOQ">
+        <div class="vid-thumb vertical">
+          <img src="https://img.youtube.com/vi/9nwurFFQdOQ/hqdefault.jpg" alt="Short Me Produz">
+          <div class="vid-overlay"><div class="vid-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+        </div>
+        <div class="vid-info"><div class="vid-tag">Short · Conteúdo</div><div class="vid-title">Conteúdo Me Produz</div></div>
+      </div>
 
     </div>
   </div>
@@ -550,7 +690,7 @@ img{max-width:100%;display:block}
       <!-- COLUNA 1: Capital Intelectual + vídeo de fundo -->
       <div class="cap-panel vp rv">
 
-        <!-- VÍDEO DE FUNDO: baixe um clipe do seu canal e coloque em assets/bg-capital.mp4 -->
+        <!-- VÍDEO DE FUNDO: baixe um clipe do seu canal e coloque em bg-capital.mp4 -->
         <video class="cap-bg-video" autoplay muted loop playsinline>
           <source src="assets/bg-capital.mp4" type="video/mp4">
         </video>
@@ -667,28 +807,31 @@ img{max-width:100%;display:block}
 </section>
 
 <!-- NUMEROS -->
-<section class="sec sec-light">
+<section class="nums-sec">
   <div class="wrap">
-    <div class="sec-head rv" style="text-align:center">
-      <div class="sec-label" style="text-align:center">Números</div>
-      <h2 class="sec-title">Resultado que aparece</h2>
-    </div>
     <div class="nums-grid">
       <div class="num-item rv">
-        <span class="num-val" data-target="30">0<em>+</em></span>
-        <div class="num-label">Clientes ativos</div>
+        <span class="num-val" data-target="3">0<em>M+</em></span>
+        <div class="num-label">Visualizações geradas</div>
       </div>
       <div class="num-item rv d1">
-        <span class="num-val" data-target="500">0<em>+</em></span>
-        <div class="num-label">Vídeos criados</div>
+        <span class="num-val" data-target="246">0<em>+</em></span>
+        <div class="num-label">Vídeos produzidos</div>
       </div>
       <div class="num-item rv d2">
-        <span class="num-val" data-target="10">0<em>M+</em></span>
-        <div class="num-label">Visualizações somadas</div>
+        <span class="num-val" data-target="13">0<em>+</em></span>
+        <div class="num-label">Anos de experiência combinada</div>
       </div>
       <div class="num-item rv d3">
-        <span class="num-val" data-target="3">0<em>+</em></span>
-        <div class="num-label">Anos de experiência</div>
+        <span class="num-val" data-target="5">0<em>+</em></span>
+        <div class="num-label">Segmentos atendidos</div>
+        <div class="seg-tags">
+          <span class="seg-tag">Saúde</span>
+          <span class="seg-tag">Indústria</span>
+          <span class="seg-tag">Automotivo</span>
+          <span class="seg-tag">Alimentação</span>
+          <span class="seg-tag">Varejo</span>
+        </div>
       </div>
     </div>
   </div>
@@ -905,6 +1048,15 @@ async function sub(e){
   }
 }
 
+// YouTube inline player
+document.querySelectorAll('.vid-block[data-yt]').forEach(function(el){
+  el.addEventListener('click',function(){
+    var id=this.dataset.yt;
+    var thumb=this.querySelector('.vid-thumb');
+    thumb.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0&modestbranding=1" frameborder="0" allow="autoplay;encrypted-media;picture-in-picture;fullscreen" allowfullscreen></iframe>';
+  });
+});
+
 // FAQ accordion
 document.querySelectorAll('.faq-q').forEach(btn=>{
   btn.addEventListener('click',()=>{
@@ -915,9 +1067,11 @@ document.querySelectorAll('.faq-q').forEach(btn=>{
   });
 });
 
-// Grain cinematográfico animado
+// Grain cinematográfico animado (apenas desktop)
 (function(){
+  if(window.innerWidth<=900)return;
   var c=document.createElement('canvas');
+  c.id='grain-canvas';
   c.style.cssText='position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9998;opacity:.1;mix-blend-mode:soft-light';
   document.body.appendChild(c);
   var ctx=c.getContext('2d');
