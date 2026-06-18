@@ -29,9 +29,18 @@ img{max-width:100%;display:block}
 
 @keyframes up{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}}
 @keyframes count-pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.03)}}
-.rv{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+@keyframes pulse-glow{0%,100%{box-shadow:0 6px 28px rgba(200,212,0,.22)}60%{box-shadow:0 6px 32px rgba(200,212,0,.55),0 0 0 10px rgba(200,212,0,.07)}}
+.rv{opacity:0;transform:translateY(32px);transition:opacity .75s cubic-bezier(.4,0,.2,1),transform .75s cubic-bezier(.4,0,.2,1)}
 .rv.on{opacity:1;transform:none}
-.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}.d5{transition-delay:.40s}
+.rv-left{opacity:0;transform:translateX(-36px);transition:opacity .75s cubic-bezier(.4,0,.2,1),transform .75s cubic-bezier(.4,0,.2,1)}
+.rv-left.on{opacity:1;transform:none}
+.rv-right{opacity:0;transform:translateX(36px);transition:opacity .75s cubic-bezier(.4,0,.2,1),transform .75s cubic-bezier(.4,0,.2,1)}
+.rv-right.on{opacity:1;transform:none}
+.rv-scale{opacity:0;transform:scale(.93);transition:opacity .7s cubic-bezier(.4,0,.2,1),transform .7s cubic-bezier(.4,0,.2,1)}
+.rv-scale.on{opacity:1;transform:scale(1)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}
+.btn-main{animation:pulse-glow 2.8s ease infinite}
+.btn-main:hover{animation:none}
 
 /* NAV */
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px 0;transition:var(--ease)}
@@ -84,11 +93,12 @@ img{max-width:100%;display:block}
 .trust-text{font-size:13px;color:var(--mid)}
 .trust-text strong{color:var(--ink)}
 @media(max-width:900px){
+  /* HERO mobile */
   .hero{background:#0A0A0A;padding-bottom:100px}
   .hero-layout{grid-template-columns:1fr;min-height:unset}
-  .hero-right{display:block;position:absolute;inset:0;min-height:unset;z-index:0;opacity:.35}
+  .hero-right{display:block;position:absolute;inset:0;min-height:unset;z-index:0;opacity:.55}
   .hero-left{padding-right:0;position:relative;z-index:2}
-  .hero-photo::after{background:linear-gradient(to bottom,rgba(10,10,10,.7) 0%,rgba(10,10,10,.3) 60%,rgba(10,10,10,.1) 100%)}
+  .hero-photo::after{background:linear-gradient(to bottom,rgba(10,10,10,.62) 0%,rgba(10,10,10,.22) 55%,rgba(10,10,10,.05) 100%)}
   .hero-title{color:#fff}
   .hero-sub{color:rgba(255,255,255,.65)}
   .hero-label{color:var(--accent)}
@@ -96,6 +106,41 @@ img{max-width:100%;display:block}
   .trust-text{color:rgba(255,255,255,.55)}
   .trust-text strong{color:#fff}
   .btn-sec{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.2);color:#fff}
+  /* PORTFOLIO mobile: swipe manual, sem auto-scroll */
+  .ptv-wrap{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;-webkit-mask:none;mask:none;scrollbar-width:none;scroll-snap-type:x mandatory;padding-bottom:4px}
+  .ptv-wrap::-webkit-scrollbar{display:none}
+  .ptv-track{animation:none !important;gap:12px;padding:0 20px 4px}
+  /* Social: esconde SET2 (itens 8-14) no mobile */
+  .portfolio-social .ptv-track>.vid-block:nth-child(n+8){display:none}
+  .vid-block.wide{width:min(300px,82vw)}
+  .vid-block.tall{width:min(170px,46vw)}
+  .vid-block{scroll-snap-align:start}
+  /* Institucional e Shows: 1 coluna no mobile */
+  .ptv-inst-grid{grid-template-columns:1fr}
+  .shows-grid{grid-template-columns:1fr}
+  /* LOGO BAR mobile */
+  .logo-bar{padding:36px 0}
+  .logo-bar-label{margin-bottom:22px;padding:0 20px}
+  .logo-card{height:68px;width:118px}
+  .logo-item{width:100%;height:100%;object-fit:cover}
+  .logo-track-wrap{-webkit-mask:linear-gradient(to right,transparent 0%,black 3%,black 97%,transparent 100%);mask:linear-gradient(to right,transparent 0%,black 3%,black 97%,transparent 100%)}
+  .logo-track{will-change:transform}
+  /* CTA BAR mobile */
+  .cta-bar{padding:48px 0}
+  .cta-bar-title{font-size:18px}
+  /* TABELA COMPARATIVA mobile */
+  .comp-thead{grid-template-columns:1fr 72px 80px 92px}
+  .comp-trow{grid-template-columns:1fr 72px 80px 92px}
+  .comp-th{padding:14px 6px;font-size:9px}
+  .comp-th:first-child{padding-left:16px}
+  .comp-td{padding:15px 6px;font-size:15px}
+  .comp-td:first-child{padding-left:16px;padding-right:10px;font-size:13px}
+  /* 5PS mobile: empilha vertical */
+  .method-track{flex-direction:column;align-items:flex-start;gap:28px;padding-left:16px}
+  .method-line{top:0;bottom:0;left:31px;right:auto;width:2px;height:100%;background:linear-gradient(to bottom,var(--accent),rgba(200,212,0,.1))}
+  .method-step{flex-direction:row;align-items:flex-start;gap:20px;text-align:left;flex:none;width:100%}
+  .method-num{margin:0;flex-shrink:0}
+  .method-items{line-height:1.9}
 }
 
 /* SECTION BASE */
@@ -110,6 +155,7 @@ img{max-width:100%;display:block}
 .portfolio-sec{background:#111;padding:100px 0;overflow:hidden}
 .vid-block{cursor:pointer}
 .vid-thumb iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vid-close{position:absolute;top:10px;right:10px;z-index:20;width:32px;height:32px;border-radius:50%;background:rgba(0,0,0,.8);border:none;color:#fff;font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:inherit;line-height:1;flex-shrink:0}
 .portfolio-sec .sec-label{color:rgba(200,212,0,.8)}
 .portfolio-sec .sec-title{color:white}
 .portfolio-sec .sec-sub{color:#777}
@@ -137,7 +183,8 @@ img{max-width:100%;display:block}
 .vid-title{font-size:13px;font-weight:600;color:#DDD;line-height:1.4}
 
 /* DEPOIMENTOS */
-.dep-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+.dep-grid{display:flex;justify-content:center}
+.dep-vid{max-width:520px;width:100%}
 .dep-stack{display:flex;flex-direction:column;gap:20px}
 .dep{background:white;border:1px solid var(--border);border-radius:10px;padding:32px;transition:var(--ease)}
 .dep:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,0,0,.06)}
@@ -222,7 +269,7 @@ img{max-width:100%;display:block}
 .num-item:last-child{border-right:none}
 .num-val{font-size:60px;font-weight:900;letter-spacing:-.04em;color:#fff;line-height:1;display:block;margin-bottom:8px}
 .num-val em{font-style:normal;color:var(--accent)}
-.num-label{font-size:13px;color:rgba(255,255,255,.4);font-weight:500;letter-spacing:.04em;text-transform:uppercase}
+.num-label{font-size:13px;color:rgba(255,255,255,.62);font-weight:600;letter-spacing:.04em;text-transform:uppercase}
 .seg-tags{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:14px}
 .seg-tag{font-size:9px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:4px 10px;border:1px solid rgba(200,212,0,.25);border-radius:20px;color:rgba(200,212,0,.6)}
 
@@ -230,10 +277,11 @@ img{max-width:100%;display:block}
 .logo-bar{background:#080808;padding:52px 0;overflow:hidden;border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05)}
 .logo-bar-label{text-align:center;font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:36px}
 .logo-track-wrap{overflow:hidden;-webkit-mask:linear-gradient(to right,transparent 0%,black 7%,black 93%,transparent 100%);mask:linear-gradient(to right,transparent 0%,black 7%,black 93%,transparent 100%)}
-.logo-track{display:flex;align-items:center;gap:16px;width:max-content;animation:reel 36s linear infinite}
+.logo-track{display:flex;align-items:center;gap:16px;width:max-content;animation:reel 40s linear infinite}
 .logo-track:hover{animation-play-state:paused}
-.logo-item{height:72px;width:auto;max-width:160px;object-fit:cover;display:block;border-radius:14px;flex-shrink:0;transition:opacity .3s}
-.logo-item:hover{opacity:.85}
+.logo-card{border-radius:20px;height:92px;width:160px;flex-shrink:0;overflow:hidden;display:block;box-shadow:0 2px 16px rgba(0,0,0,.25);transition:transform .25s,box-shadow .25s}
+.logo-card:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.35)}
+.logo-item{width:100%;height:100%;object-fit:cover;display:block}
 
 /* CTA MID */
 .cta-mid{background:var(--black);padding:80px 0}
@@ -300,6 +348,55 @@ img{max-width:100%;display:block}
 .ft-soc a{width:34px;height:34px;border-radius:6px;border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:#555;font-size:14px;transition:var(--ease)}
 .ft-soc a:hover{border-color:var(--accent);color:var(--accent)}
 
+/* PORTFOLIO INSTITUCIONAL GRID */
+.ptv-inst-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:0}
+
+/* SHOWS & EVENTOS grid 2x2 */
+.shows-sec{background:radial-gradient(ellipse 60% 80% at 20% 20%,rgba(200,212,0,.07) 0%,transparent 100%),linear-gradient(180deg,#0A0A0A 0%,#1A1A1A 100%)}
+.shows-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+
+/* PORTFOLIO SOCIAL (carrossel vertical) */
+.portfolio-social{background:radial-gradient(ellipse 70% 60% at 80% 80%,rgba(200,212,0,.09) 0%,transparent 100%),radial-gradient(ellipse 40% 40% at 15% 15%,rgba(200,212,0,.04) 0%,transparent 100%),linear-gradient(180deg,#070707 0%,#1A1A1A 100%)}
+
+/* CTA BAR */
+.cta-bar{padding:64px 0;background:radial-gradient(ellipse 60% 100% at 50% 50%,rgba(200,212,0,.07) 0%,transparent 100%),linear-gradient(135deg,#111 0%,#080808 100%);border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05)}
+.cta-bar-in{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
+.cta-bar-title{font-size:22px;font-weight:800;color:#fff;letter-spacing:-.03em;max-width:560px;line-height:1.3;margin-bottom:4px}
+.cta-bar-sub{font-size:13px;color:rgba(255,255,255,.38);margin-bottom:8px}
+
+/* TABELA COMPARATIVA */
+.comp-sec{padding:100px 0;background:radial-gradient(ellipse 70% 60% at 50% 0%,rgba(200,212,0,.07) 0%,transparent 100%),linear-gradient(180deg,#0D0D0D 0%,#080808 100%)}
+.comp-sec .sec-head{text-align:center;margin-bottom:56px}
+.comp-sec .sec-label{color:rgba(200,212,0,.8);display:block;text-align:center}
+.comp-sec .sec-title{color:#fff}
+.comp-wrap{max-width:860px;margin:0 auto;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.08)}
+.comp-thead{display:grid;grid-template-columns:1fr 108px 118px 136px;background:rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.08)}
+.comp-th{padding:18px 8px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-align:center}
+.comp-th:first-child{text-align:left;padding-left:28px;color:rgba(255,255,255,.45)}
+.comp-th.them{color:rgba(255,255,255,.68)}
+.comp-th.ours{color:var(--accent);background:rgba(200,212,0,.1);font-size:11px;font-weight:800}
+.comp-trow{display:grid;grid-template-columns:1fr 108px 118px 136px;border-bottom:1px solid rgba(255,255,255,.07);align-items:center}
+.comp-trow:last-child{border-bottom:none}
+.comp-trow:hover{background:rgba(255,255,255,.03)}
+.comp-td{padding:18px 8px;text-align:center;font-size:20px}
+.comp-td:first-child{text-align:left;padding-left:28px;padding-right:14px;font-size:14px;font-weight:600;color:rgba(255,255,255,.92)}
+.comp-td.yes{color:var(--accent);font-weight:800}
+.comp-td.no{color:rgba(255,255,255,.32);font-weight:500;font-size:16px}
+.comp-td.ours{background:rgba(200,212,0,.06)}
+
+/* 5PS MÉTODO */
+.method-sec{padding:100px 0;background:var(--black)}
+.method-sec .sec-head{text-align:center;margin-bottom:0}
+.method-sec .sec-label{color:rgba(200,212,0,.8);display:block;text-align:center}
+.method-sec .sec-title{color:#fff}
+.method-sec .sec-sub{margin:0 auto;color:#666}
+.method-track{display:flex;gap:0;position:relative;margin-top:72px;align-items:flex-start}
+.method-line{position:absolute;top:31px;left:0;right:0;height:2px;background:linear-gradient(to right,var(--accent) 0%,rgba(200,212,0,.12) 100%);z-index:0}
+.method-step{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;z-index:1;padding:0 8px}
+.method-num{width:64px;height:64px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;margin:0 auto 22px;font-size:22px;font-weight:900;color:#0A0A0A;box-shadow:0 0 0 8px rgba(200,212,0,.1),0 0 0 16px rgba(200,212,0,.04);position:relative;flex-shrink:0}
+.method-name{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#fff;margin-bottom:12px}
+.method-items{font-size:13px;color:rgba(255,255,255,.6);line-height:2.1}
+
 /* GRAIN CINEMATOGRÁFICO + GLOW — grain animado via canvas JS */
 .portfolio-sec{background:radial-gradient(ellipse 80% 60% at 15% 85%,rgba(200,212,0,.09) 0%,transparent 100%),radial-gradient(ellipse 50% 40% at 85% 15%,rgba(200,212,0,.05) 0%,transparent 100%),linear-gradient(180deg,#1A1A1A 0%,#070707 100%)}
 .cta-mid{background:radial-gradient(ellipse 60% 100% at 5% 50%,rgba(200,212,0,.1) 0%,transparent 100%),linear-gradient(135deg,#1C1C1C 0%,#080808 100%)}
@@ -329,14 +426,36 @@ img{max-width:100%;display:block}
   .dep-grid{grid-template-columns:1fr}
   .capital-grid{flex-direction:column}
   .gear-grid{grid-template-columns:1fr 1fr}
+  /* NÚMEROS mobile */
   .nums-grid{grid-template-columns:repeat(2,1fr)}
+  .num-item{padding:32px 16px}
+  .num-val{font-size:42px}
+  .num-label{font-size:11px;letter-spacing:.03em}
+  /* TABELA mobile pequena */
+  .comp-sec{padding:72px 0}
+  .comp-td:first-child{font-size:12px}
+  /* METHOD mobile */
+  .method-sec{padding:72px 0}
+  .method-track{margin-top:48px}
+  /* FOOTER */
   .footer-in{grid-template-columns:1fr;gap:36px}
   .footer-bot{flex-direction:column;gap:16px;text-align:center}
+  /* HERO ACTIONS */
   .hero-actions{flex-direction:column}
   .hero-actions a{width:100%;justify-content:center}
+  /* CTA MID mobile: empilha verticalmente */
+  .cta-mid{padding:56px 0}
+  .cta-mid-inner{flex-direction:column;gap:24px;text-align:center}
+  .cta-mid-text h2{font-size:26px;text-align:center;max-width:100%}
+  .cta-mid-inner .btn-main{width:100%;justify-content:center}
+  /* PORTFOLIO */
+  .portfolio-sec{padding:72px 0}
+  .portfolio-sec .sec-head{margin-bottom:32px}
+  /* FORM */
   .waf span{display:none}
   .waf{width:54px;height:54px;padding:0;border-radius:50%;justify-content:center}
   .fbox{padding:28px 22px}
+  /* REEL legacy */
   .reel-card.wide{width:260px}
   .reel-card.tall{width:150px}
 }
@@ -354,7 +473,7 @@ img{max-width:100%;display:block}
         <li><a href="#processo">Processo</a></li>
         <li><a href="#resultados">Resultados</a></li>
       </ul>
-      <a href="#contato" class="nav-cta">Quero minha proposta grátis</a>
+      <a href="#contato" class="nav-cta">Quero minha proposta</a>
       <div class="ham" id="ham"><span></span><span></span><span></span></div>
     </div>
   </div>
@@ -366,7 +485,7 @@ img{max-width:100%;display:block}
   <a href="#portfolio" onclick="cm()">Portfolio</a>
   <a href="#processo" onclick="cm()">Processo</a>
   <a href="#resultados" onclick="cm()">Resultados</a>
-  <a href="#contato" onclick="cm()">Quero minha proposta grátis</a>
+  <a href="#contato" onclick="cm()">Quero minha proposta</a>
 </div>
 
 <!-- HERO -->
@@ -384,7 +503,7 @@ img{max-width:100%;display:block}
         </h1>
         <p class="hero-sub">Do roteiro à postagem, produzimos e gerenciamos todo o conteúdo digital da sua empresa com estratégia, qualidade profissional e resultado mensurável todo mês.</p>
         <div class="hero-actions">
-          <a href="#contato" class="btn-main">Quero minha proposta grátis →</a>
+          <a href="#contato" class="btn-main">Quero minha proposta →</a>
           <a href="#portfolio" class="btn-sec">Ver nosso trabalho</a>
         </div>
         <div class="hero-urg">⚡ Vagas limitadas. Atendemos até 5 novos clientes por mês</div>
@@ -415,45 +534,43 @@ img{max-width:100%;display:block}
   <p class="logo-bar-label">Marcas que já confiaram na Me Produz</p>
   <div class="logo-track-wrap">
     <div class="logo-track">
-      <img class="logo-item" src="assets/logo-auribix.jpg" alt="Auribix">
-      <img class="logo-item" src="assets/logo-jhinox.png" alt="JH Inox">
-      <img class="logo-item" src="assets/logo-saertex.webp" alt="SAERTEX">
-      <img class="logo-item" src="assets/logo-scuderia.jpg" alt="Scuderia">
-      <img class="logo-item" src="assets/logo-skarrara.png" alt="Skarrara">
-      <img class="logo-item" src="assets/logo-cardamo.jpg" alt="Cardamô">
-      <img class="logo-item" src="assets/logo-melhor-sorriso.jpg" alt="Melhor Sorriso">
-      <img class="logo-item" src="assets/logo-smoo.png" alt="Smoo">
-      <img class="logo-item" src="assets/logo-ibira.jpg" alt="Ibirá">
-      <img class="logo-item" src="assets/logo-grafica-mil.jpg" alt="Gráfica Mil">
-      <img class="logo-item" src="assets/logo-sorria.jpg" alt="Sorria">
+      <div class="logo-card"><img class="logo-item" src="assets/logo-auribix.jpg" alt="Auribix"></div>
+      <div class="logo-card"><img class="logo-item" src="assets/logo-jhinox.png" alt="JH Inox"></div>
+      <div class="logo-card"><img class="logo-item" src="assets/logo-saertex.webp" alt="SAERTEX"></div>
+      <div class="logo-card"><img class="logo-item" src="assets/logo-scuderia.jpg" alt="Scuderia"></div>
+      <div class="logo-card"><img class="logo-item" src="assets/logo-skarrara.png" alt="Skarrara"></div>
+      <div class="logo-card"><img class="logo-item" src="assets/logo-cardamo.jpg" alt="Cardamô"></div>
+      <div class="logo-card"><img class="logo-item" src="assets/logo-melhor-sorriso.jpg" alt="Melhor Sorriso"></div>
+      <div class="logo-card"><img class="logo-item" src="assets/logo-smoo.png" alt="Smoo"></div>
+      <div class="logo-card"><img class="logo-item" src="assets/logo-ibira.jpg" alt="Ibirá"></div>
+      <div class="logo-card"><img class="logo-item" src="assets/logo-grafica-mil.jpg" alt="Gráfica Mil"></div>
+      <div class="logo-card"><img class="logo-item" src="assets/logo-sorria.jpg" alt="Sorria"></div>
       <!-- SET 2 — loop infinito -->
-      <img class="logo-item" src="assets/logo-auribix.jpg" alt="Auribix">
-      <img class="logo-item" src="assets/logo-jhinox.png" alt="JH Inox">
-      <img class="logo-item" src="assets/logo-saertex.webp" alt="SAERTEX">
-      <img class="logo-item" src="assets/logo-scuderia.jpg" alt="Scuderia">
-      <img class="logo-item" src="assets/logo-skarrara.png" alt="Skarrara">
-      <img class="logo-item" src="assets/logo-cardamo.jpg" alt="Cardamô">
-      <img class="logo-item" src="assets/logo-melhor-sorriso.jpg" alt="Melhor Sorriso">
-      <img class="logo-item" src="assets/logo-smoo.png" alt="Smoo">
-      <img class="logo-item" src="assets/logo-ibira.jpg" alt="Ibirá">
-      <img class="logo-item" src="assets/logo-grafica-mil.jpg" alt="Gráfica Mil">
-      <img class="logo-item" src="assets/logo-sorria.jpg" alt="Sorria">
+      <div class="logo-card"><img class="logo-item" src="assets/logo-auribix.jpg" alt="Auribix"></div>
+      <div class="logo-card"><img class="logo-item" src="assets/logo-jhinox.png" alt="JH Inox"></div>
+      <div class="logo-card"><img class="logo-item" src="assets/logo-saertex.webp" alt="SAERTEX"></div>
+      <div class="logo-card"><img class="logo-item" src="assets/logo-scuderia.jpg" alt="Scuderia"></div>
+      <div class="logo-card"><img class="logo-item" src="assets/logo-skarrara.png" alt="Skarrara"></div>
+      <div class="logo-card"><img class="logo-item" src="assets/logo-cardamo.jpg" alt="Cardamô"></div>
+      <div class="logo-card"><img class="logo-item" src="assets/logo-melhor-sorriso.jpg" alt="Melhor Sorriso"></div>
+      <div class="logo-card"><img class="logo-item" src="assets/logo-smoo.png" alt="Smoo"></div>
+      <div class="logo-card"><img class="logo-item" src="assets/logo-ibira.jpg" alt="Ibirá"></div>
+      <div class="logo-card"><img class="logo-item" src="assets/logo-grafica-mil.jpg" alt="Gráfica Mil"></div>
+      <div class="logo-card"><img class="logo-item" src="assets/logo-sorria.jpg" alt="Sorria"></div>
     </div>
   </div>
 </section>
 
-<!-- PORTFOLIO DE VIDEOS -->
+<!-- PORTFOLIO INSTITUCIONAL -->
 <section class="portfolio-sec" id="portfolio">
   <div class="wrap">
     <div class="sec-head rv">
-      <div class="sec-label">Portfolio</div>
-      <h2 class="sec-title">Conteúdos que criamos</h2>
-      <p class="sec-sub">Uma seleção dos nossos melhores trabalhos para clientes reais.</p>
+      <div class="sec-label">Conteúdo Institucional</div>
+      <h2 class="sec-title">Vídeos que posicionam sua marca</h2>
+      <p class="sec-sub">Produção completa, do roteiro à entrega final.</p>
     </div>
-  <div class="ptv-wrap">
-    <div class="ptv-track">
+    <div class="ptv-inst-grid rv">
 
-      <!-- === SET 1 === -->
       <div class="vid-block wide" data-yt="kceFOhCC2ng">
         <div class="vid-thumb wide">
           <img src="https://img.youtube.com/vi/kceFOhCC2ng/maxresdefault.jpg" alt="JH Inox">
@@ -462,6 +579,42 @@ img{max-width:100%;display:block}
         <div class="vid-info"><div class="vid-tag">Indústria · B2B</div><div class="vid-title">JH Inox: Processo produtivo</div></div>
       </div>
 
+      <div class="vid-block wide" data-yt="PP7JtIVhAZA">
+        <div class="vid-thumb wide">
+          <img src="https://img.youtube.com/vi/PP7JtIVhAZA/maxresdefault.jpg" alt="SAERTEX">
+          <div class="vid-overlay"><div class="vid-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+        </div>
+        <div class="vid-info"><div class="vid-tag">Indústria · Produto</div><div class="vid-title">SAERTEX: Desenvolvimento de produto</div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAR PÓS-INSTITUCIONAL -->
+<div class="cta-bar">
+  <div class="wrap">
+    <div class="cta-bar-in">
+      <p class="cta-bar-title rv">Quer um vídeo assim para a sua empresa?</p>
+      <span class="cta-bar-sub rv d1">Atendemos até 5 novos clientes por mês — garanta sua vaga</span>
+      <a href="#contato" class="btn-main rv d2">Quero minha proposta →</a>
+    </div>
+  </div>
+</div>
+
+<!-- PORTFOLIO REDES SOCIAIS -->
+<section class="portfolio-sec portfolio-social" id="portfolio-social">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-label">Conteúdo para Redes Sociais</div>
+      <h2 class="sec-title">Conteúdo para Redes Sociais</h2>
+      <p class="sec-sub">Vídeos criados para performar no orgânico e turbinar o tráfego pago.</p>
+    </div>
+  </div>
+  <div class="ptv-wrap">
+    <div class="ptv-track">
+
+      <!-- === SET 1 === -->
       <div class="vid-block tall" data-yt="tknkFUBAM9s">
         <div class="vid-thumb vertical">
           <img src="https://img.youtube.com/vi/tknkFUBAM9s/hqdefault.jpg" alt="Short Me Produz">
@@ -476,14 +629,6 @@ img{max-width:100%;display:block}
           <div class="vid-overlay"><div class="vid-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
         </div>
         <div class="vid-info"><div class="vid-tag">Short · Conteúdo</div><div class="vid-title">Conteúdo Me Produz</div></div>
-      </div>
-
-      <div class="vid-block wide" data-yt="PP7JtIVhAZA">
-        <div class="vid-thumb wide">
-          <img src="https://img.youtube.com/vi/PP7JtIVhAZA/maxresdefault.jpg" alt="SAERTEX">
-          <div class="vid-overlay"><div class="vid-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
-        </div>
-        <div class="vid-info"><div class="vid-tag">Indústria · Produto</div><div class="vid-title">SAERTEX: Desenvolvimento de produto</div></div>
       </div>
 
       <div class="vid-block tall" data-yt="SdBfN0TEFJA">
@@ -527,14 +672,6 @@ img{max-width:100%;display:block}
       </div>
 
       <!-- === SET 2 — loop infinito === -->
-      <div class="vid-block wide" data-yt="kceFOhCC2ng">
-        <div class="vid-thumb wide">
-          <img src="https://img.youtube.com/vi/kceFOhCC2ng/maxresdefault.jpg" alt="JH Inox">
-          <div class="vid-overlay"><div class="vid-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
-        </div>
-        <div class="vid-info"><div class="vid-tag">Indústria · B2B</div><div class="vid-title">JH Inox: Processo produtivo</div></div>
-      </div>
-
       <div class="vid-block tall" data-yt="tknkFUBAM9s">
         <div class="vid-thumb vertical">
           <img src="https://img.youtube.com/vi/tknkFUBAM9s/hqdefault.jpg" alt="Short Me Produz">
@@ -549,14 +686,6 @@ img{max-width:100%;display:block}
           <div class="vid-overlay"><div class="vid-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
         </div>
         <div class="vid-info"><div class="vid-tag">Short · Conteúdo</div><div class="vid-title">Conteúdo Me Produz</div></div>
-      </div>
-
-      <div class="vid-block wide" data-yt="PP7JtIVhAZA">
-        <div class="vid-thumb wide">
-          <img src="https://img.youtube.com/vi/PP7JtIVhAZA/maxresdefault.jpg" alt="SAERTEX">
-          <div class="vid-overlay"><div class="vid-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
-        </div>
-        <div class="vid-info"><div class="vid-tag">Indústria · Produto</div><div class="vid-title">SAERTEX: Desenvolvimento de produto</div></div>
       </div>
 
       <div class="vid-block tall" data-yt="SdBfN0TEFJA">
@@ -601,21 +730,64 @@ img{max-width:100%;display:block}
 
     </div>
   </div>
+</section>
+
+<!-- SHOWS & EVENTOS AO VIVO -->
+<section class="portfolio-sec shows-sec" id="eventos">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-label">Shows & Eventos</div>
+      <h2 class="sec-title">Shows, Eventos e Clipes</h2>
+      <p class="sec-sub">Captações de grandes produções ao vivo com qualidade cinematográfica.</p>
+    </div>
+    <div class="shows-grid rv">
+
+      <div class="vid-block wide" data-yt="U6kLsX2eHJc">
+        <div class="vid-thumb wide">
+          <img src="https://img.youtube.com/vi/U6kLsX2eHJc/maxresdefault.jpg" alt="Show ao vivo">
+          <div class="vid-overlay"><div class="vid-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+        </div>
+        <div class="vid-info"><div class="vid-tag">Show · Ao vivo</div><div class="vid-title">Captação de show ao vivo</div></div>
+      </div>
+
+      <div class="vid-block wide" data-yt="dhlJs-pgHwg">
+        <div class="vid-thumb wide">
+          <img src="https://img.youtube.com/vi/dhlJs-pgHwg/maxresdefault.jpg" alt="Show ao vivo">
+          <div class="vid-overlay"><div class="vid-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+        </div>
+        <div class="vid-info"><div class="vid-tag">Show · Ao vivo</div><div class="vid-title">Captação de show ao vivo</div></div>
+      </div>
+
+      <div class="vid-block wide" data-yt="Wl7FczVhy8s">
+        <div class="vid-thumb wide">
+          <img src="https://img.youtube.com/vi/Wl7FczVhy8s/maxresdefault.jpg" alt="Show ao vivo">
+          <div class="vid-overlay"><div class="vid-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+        </div>
+        <div class="vid-info"><div class="vid-tag">Evento · Ao vivo</div><div class="vid-title">Captação de evento ao vivo</div></div>
+      </div>
+
+      <div class="vid-block wide" data-yt="vsG25jN6YqI">
+        <div class="vid-thumb wide">
+          <img src="https://img.youtube.com/vi/vsG25jN6YqI/maxresdefault.jpg" alt="Show ao vivo">
+          <div class="vid-overlay"><div class="vid-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+        </div>
+        <div class="vid-info"><div class="vid-tag">Evento · Ao vivo</div><div class="vid-title">Captação de evento ao vivo</div></div>
+      </div>
+
+    </div>
   </div>
 </section>
 
 <!-- DEPOIMENTOS -->
 <section class="sec" id="resultados">
   <div class="wrap">
-    <div class="sec-head rv">
-      <div class="sec-label">Depoimentos</div>
-      <h2 class="sec-title">O que os clientes dizem</h2>
-      <p class="sec-sub">Resultados reais de quem escolheu crescer com a Me Produz.</p>
+    <div class="sec-head rv" style="text-align:center">
+      <div class="sec-label" style="text-align:center">Depoimentos</div>
+      <h2 class="sec-title">Veja como é ser um cliente Me Produz</h2>
+      <p class="sec-sub" style="margin:0 auto">Ouça de quem já viveu a experiência.</p>
     </div>
     <div class="dep-grid">
-
-      <!-- VIDEO DEPOIMENTO -->
-      <a class="dep-vid rv" href="https://www.instagram.com/p/DWT7BztjnFm/" target="_blank" rel="noopener">
+      <a class="dep-vid rv-scale" href="https://www.instagram.com/p/DWT7BztjnFm/" target="_blank" rel="noopener">
         <img src="assets/thumb-depoimento.png" alt="Depoimento em vídeo">
         <div class="dep-vid-overlay">
           <div class="dep-vid-play">
@@ -623,43 +795,71 @@ img{max-width:100%;display:block}
           </div>
           <div class="dep-vid-info">
             <div class="dep-vid-label">Depoimento em vídeo</div>
-            <!-- TROQUE pelo nome real do cliente -->
             <div class="dep-vid-name">Nome do Cliente</div>
             <div class="dep-vid-role">Segmento · Cidade</div>
           </div>
         </div>
       </a>
+    </div>
+  </div>
+</section>
 
-      <!-- DEPOIMENTOS TEXTO -->
-      <div class="dep-stack">
-        <div class="dep rv">
-          <div class="dep-stars">
-            <span class="dep-star">★</span><span class="dep-star">★</span><span class="dep-star">★</span><span class="dep-star">★</span><span class="dep-star">★</span>
-          </div>
-          <p class="dep-text">Em 45 dias com a Me Produz triplicamos o número de agendamentos pelo Instagram. Antes eu não postava nada por falta de tempo. Hoje tenho conteúdo toda semana e os clientes chegam sem eu precisar correr atrás.</p>
-          <div class="dep-author">
-            <div class="dep-av dep-av-1">M</div>
-            <div>
-              <div class="dep-name">Mariana S. · Clínica Estética</div>
-              <div class="dep-role">Salto, SP · cliente há 8 meses</div>
-            </div>
-          </div>
-        </div>
-        <div class="dep rv d1">
-          <div class="dep-stars">
-            <span class="dep-star">★</span><span class="dep-star">★</span><span class="dep-star">★</span><span class="dep-star">★</span><span class="dep-star">★</span>
-          </div>
-          <p class="dep-text">Pensava que vídeo profissional era coisa de empresa grande. A Me Produz veio aqui, gravou tudo em um dia e em uma semana os vídeos estavam rodando. No primeiro mês já senti diferença na procura.</p>
-          <div class="dep-author">
-            <div class="dep-av dep-av-2">R</div>
-            <div>
-              <div class="dep-name">Rafael M. · Restaurante</div>
-              <div class="dep-role">Itu, SP · cliente há 5 meses</div>
-            </div>
-          </div>
-        </div>
+<!-- TABELA COMPARATIVA -->
+<section class="comp-sec" id="comparativo">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-label">Por que a Me Produz</div>
+      <h2 class="sec-title">Somos diferentes. Veja como.</h2>
+    </div>
+    <div class="comp-wrap rv-scale">
+      <div class="comp-thead">
+        <div class="comp-th">O que você precisa</div>
+        <div class="comp-th them">Produtora</div>
+        <div class="comp-th them">Agência</div>
+        <div class="comp-th ours">Me Produz ✦</div>
       </div>
-
+      <div class="comp-trow">
+        <div class="comp-td">Estratégia de conteúdo</div>
+        <div class="comp-td no">✗</div>
+        <div class="comp-td yes">✓</div>
+        <div class="comp-td yes ours">✓</div>
+      </div>
+      <div class="comp-trow">
+        <div class="comp-td">Produção profissional de vídeo</div>
+        <div class="comp-td yes">✓</div>
+        <div class="comp-td no">✗</div>
+        <div class="comp-td yes ours">✓</div>
+      </div>
+      <div class="comp-trow">
+        <div class="comp-td">Roteirização para cada formato</div>
+        <div class="comp-td yes">✓</div>
+        <div class="comp-td no">✗</div>
+        <div class="comp-td yes ours">✓</div>
+      </div>
+      <div class="comp-trow">
+        <div class="comp-td">Conteúdo vertical para redes sociais</div>
+        <div class="comp-td yes">✓</div>
+        <div class="comp-td no">✗</div>
+        <div class="comp-td yes ours">✓</div>
+      </div>
+      <div class="comp-trow">
+        <div class="comp-td">Gestão de publicação</div>
+        <div class="comp-td no">✗</div>
+        <div class="comp-td yes">✓</div>
+        <div class="comp-td yes ours">✓</div>
+      </div>
+      <div class="comp-trow">
+        <div class="comp-td">Análise de resultado mensal</div>
+        <div class="comp-td no">✗</div>
+        <div class="comp-td yes">✓</div>
+        <div class="comp-td yes ours">✓</div>
+      </div>
+      <div class="comp-trow">
+        <div class="comp-td">Tudo num só lugar, sem terceirizar</div>
+        <div class="comp-td no">✗</div>
+        <div class="comp-td no">✗</div>
+        <div class="comp-td yes ours">✓</div>
+      </div>
     </div>
   </div>
 </section>
@@ -667,12 +867,12 @@ img{max-width:100%;display:block}
 <!-- CTA INTERMEDIÁRIO -->
 <section class="cta-mid">
   <div class="wrap">
-    <div class="cta-mid-inner rv">
-      <div class="cta-mid-text">
+    <div class="cta-mid-inner">
+      <div class="cta-mid-text rv-left">
         <h2>Pronto para ter conteúdo profissional todo mês?</h2>
         <p>Vagas limitadas. Só abrimos 5 novas parcerias por mês.</p>
       </div>
-      <a href="https://wa.me/5511992342160?text=Oi%2C+vim+pelo+site+da+Me+Produz+e+quero+solicitar+um+or%C3%A7amento!" class="btn-main" target="_blank" rel="noopener">Quero minha proposta grátis →</a>
+      <a href="https://wa.me/5511992342160?text=Oi%2C+vim+pelo+site+da+Me+Produz+e+quero+solicitar+um+or%C3%A7amento!" class="btn-main rv-right d1" target="_blank" rel="noopener">Quero minha proposta →</a>
     </div>
   </div>
 </section>
@@ -806,23 +1006,68 @@ img{max-width:100%;display:block}
   </div>
 </section>
 
+<!-- OS 5PS — MÉTODO ME PRODUZ -->
+<section class="method-sec" id="metodo">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-label">Nosso método</div>
+      <h2 class="sec-title">Os 5Ps da Me Produz</h2>
+      <p class="sec-sub">Do briefing à análise, cada etapa com propósito e resultado mensurável.</p>
+    </div>
+    <div class="method-track rv-scale">
+      <div class="method-line"></div>
+
+      <div class="method-step rv d1">
+        <div class="method-num">1</div>
+        <div class="method-name">Pesquisa</div>
+        <div class="method-items">Benchmark<br>Referências<br>Brainstorm</div>
+      </div>
+
+      <div class="method-step rv d2">
+        <div class="method-num">2</div>
+        <div class="method-name">Planejamento</div>
+        <div class="method-items">Objetivos<br>Públicos<br>Etapas do funil</div>
+      </div>
+
+      <div class="method-step rv d3">
+        <div class="method-num">3</div>
+        <div class="method-name">Produção</div>
+        <div class="method-items">Captação<br>Direção<br>Edição<br>Aprovação</div>
+      </div>
+
+      <div class="method-step rv d4">
+        <div class="method-num">4</div>
+        <div class="method-name">Postagem</div>
+        <div class="method-items">Programação<br>Legenda<br>Horários/Dias</div>
+      </div>
+
+      <div class="method-step rv d5">
+        <div class="method-num">5</div>
+        <div class="method-name">Padrão</div>
+        <div class="method-items">KPIs<br>Análise<br>Melhoria contínua</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- NUMEROS -->
 <section class="nums-sec">
   <div class="wrap">
     <div class="nums-grid">
-      <div class="num-item rv">
+      <div class="num-item rv-left">
         <span class="num-val" data-target="3">0<em>M+</em></span>
         <div class="num-label">Visualizações geradas</div>
       </div>
       <div class="num-item rv d1">
-        <span class="num-val" data-target="246">0<em>+</em></span>
+        <span class="num-val" data-target="546">0<em>+</em></span>
         <div class="num-label">Vídeos produzidos</div>
       </div>
       <div class="num-item rv d2">
         <span class="num-val" data-target="13">0<em>+</em></span>
         <div class="num-label">Anos de experiência combinada</div>
       </div>
-      <div class="num-item rv d3">
+      <div class="num-item rv-right d3">
         <span class="num-val" data-target="5">0<em>+</em></span>
         <div class="num-label">Segmentos atendidos</div>
         <div class="seg-tags">
@@ -836,6 +1081,17 @@ img{max-width:100%;display:block}
     </div>
   </div>
 </section>
+
+<!-- CTA BAR PRÉ-FAQ -->
+<div class="cta-bar">
+  <div class="wrap">
+    <div class="cta-bar-in">
+      <p class="cta-bar-title rv">Pronto para ter conteúdo profissional todo mês?</p>
+      <span class="cta-bar-sub rv d1">Sem fidelização de longo prazo · Diagnóstico do seu perfil · Resultado mensurável</span>
+      <a href="#contato" class="btn-main rv d2">Solicitar proposta →</a>
+    </div>
+  </div>
+</div>
 
 <!-- FAQ -->
 <section class="sec sec-light" id="faq">
@@ -895,23 +1151,23 @@ img{max-width:100%;display:block}
   <div class="wrap">
     <div class="form-grid">
       <div class="form-left">
-        <div class="sec-label rv" style="color:var(--accent)">Vamos conversar</div>
-        <h2 class="sec-title rv">Garanta sua<br>vaga agora</h2>
-        <p class="sec-sub rv">Nossa equipe entra em contato para entender o seu negócio e apresentar a proposta ideal.</p>
-        <ul class="form-list rv">
+        <div class="sec-label rv-left" style="color:var(--accent)">Vamos conversar</div>
+        <h2 class="sec-title rv-left d1">Garanta sua<br>vaga agora</h2>
+        <p class="sec-sub rv-left d2">Nossa equipe entra em contato para entender o seu negócio e apresentar a proposta ideal.</p>
+        <ul class="form-list rv-left d3">
           <li>Diagnóstico gratuito do seu perfil</li>
           <li>Proposta feita para o seu segmento</li>
           <li>Sem fidelização de longo prazo</li>
           <li>Resultado mensurável todo mês</li>
         </ul>
-        <div class="urg rv">
+        <div class="urg rv-left d4">
           <span class="urg-dot"></span>
           <p>Atendemos até 5 novos clientes por mês.</p>
         </div>
       </div>
-      <div class="fbox rv d2">
+      <div class="fbox rv-right">
         <div id="fWrap">
-          <div class="fbox-title">Quero minha proposta grátis</div>
+          <div class="fbox-title">Quero minha proposta</div>
           <p class="fbox-sub">Retornamos em até 24 horas pelo WhatsApp.</p>
           <form id="leadForm" onsubmit="sub(event)">
             <div class="fg">
@@ -922,7 +1178,7 @@ img{max-width:100%;display:block}
               <label class="fl" for="wapp">WhatsApp</label>
               <input class="fi" type="tel" id="wapp" placeholder="(11) 99999-9999" required maxlength="15">
             </div>
-            <button type="submit" class="fsub" id="sbtn">Quero minha proposta grátis →</button>
+            <button type="submit" class="fsub" id="sbtn">Quero criar vídeos profissionais →</button>
             <p class="fnote">Seus dados estão seguros. Sem spam.</p>
           </form>
         </div>
@@ -987,9 +1243,9 @@ const SK='sb_publishable_WW_IkaY7yE-IyDLyy6Kc6w_2tZ5MMPp';
 const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>nav.classList.toggle('s',window.scrollY>40),{passive:true});
 
-// Scroll reveal
+// Scroll reveal — rv, rv-left, rv-right, rv-scale
 const ro=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');ro.unobserve(e.target);}}),{threshold:.1});
-document.querySelectorAll('.rv').forEach(el=>ro.observe(el));
+document.querySelectorAll('.rv,.rv-left,.rv-right,.rv-scale').forEach(el=>ro.observe(el));
 
 // Counters
 const co=new IntersectionObserver(es=>{
@@ -1043,19 +1299,43 @@ async function sub(e){
       document.getElementById('fOk').style.display='block';
     }else throw new Error(res.status);
   }catch(err){
-    btn.disabled=false;btn.textContent='Quero minha proposta grátis →';
+    btn.disabled=false;btn.textContent='Quero minha proposta →';
     alert('Erro ao enviar. Tente novamente ou nos chame no WhatsApp.');
   }
 }
 
-// YouTube inline player
-document.querySelectorAll('.vid-block[data-yt]').forEach(function(el){
-  el.addEventListener('click',function(){
-    var id=this.dataset.yt;
-    var thumb=this.querySelector('.vid-thumb');
-    thumb.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0&modestbranding=1" frameborder="0" allow="autoplay;encrypted-media;picture-in-picture;fullscreen" allowfullscreen></iframe>';
+// YouTube inline player — swipe-friendly no mobile
+(function(){
+  var blocks=document.querySelectorAll('.vid-block[data-yt]');
+  // Salva HTML original de cada thumbnail para restaurar depois
+  blocks.forEach(function(el){
+    el.dataset.origHtml=el.querySelector('.vid-thumb').innerHTML;
   });
-});
+  blocks.forEach(function(el){
+    el.addEventListener('click',function(e){
+      var thumb=el.querySelector('.vid-thumb');
+      // Botão fechar: restaura thumbnail original
+      if(e.target.closest&&e.target.closest('.vid-close')){
+        thumb.innerHTML=el.dataset.origHtml;
+        return;
+      }
+      // Já tem vídeo tocando: não refaz
+      if(thumb.querySelector('iframe'))return;
+      // Para todos os outros vídeos em reprodução
+      blocks.forEach(function(other){
+        if(other!==el){
+          var ot=other.querySelector('.vid-thumb');
+          if(ot.querySelector('iframe')) ot.innerHTML=other.dataset.origHtml;
+        }
+      });
+      // Inicia este vídeo
+      var id=el.dataset.yt;
+      var isMob=window.innerWidth<=900;
+      thumb.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0&modestbranding=1" frameborder="0" allow="autoplay;encrypted-media;picture-in-picture;fullscreen" allowfullscreen></iframe>'
+        +(isMob?'<button class="vid-close" title="Fechar vídeo">✕</button>':'');
+    });
+  });
+})();
 
 // FAQ accordion
 document.querySelectorAll('.faq-q').forEach(btn=>{
