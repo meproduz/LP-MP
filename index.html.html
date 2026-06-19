@@ -1248,7 +1248,8 @@ async function sub(e){
     const res=await fetch(SU+'/rest/v1/leads',{
       method:'POST',
       headers:{'Content-Type':'application/json','apikey':SK,'Authorization':'Bearer '+SK,'Prefer':'return=minimal'},
-      body:JSON.stringify({nome:document.getElementById('nome').value.trim(),whatsapp:document.getElementById('wapp').value.trim(),dificuldade:document.getElementById('dificuldade').value.trim(),origem:'landing_meproduz',status:'novo'})
+      body:JSON.stringify({nome:document.getElementById('nome').value.trim(),whatsapp:document.getElementById('wapp').value.trim(),origem:'landing_meproduz',status:'novo'})
+      // campo dificuldade: reativar após criar coluna text no Supabase → tabela leads
     });
     if(res.ok||res.status===201){
       document.getElementById('fWrap').style.display='none';
