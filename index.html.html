@@ -1253,10 +1253,13 @@ async function sub(e){
     if(res.ok||res.status===201){
       document.getElementById('fWrap').style.display='none';
       document.getElementById('fOk').style.display='block';
-    }else throw new Error(res.status);
+    }else{
+      const body=await res.text();
+      throw new Error('HTTP '+res.status+' — '+body);
+    }
   }catch(err){
-    btn.disabled=false;btn.textContent='Quero minha proposta →';
-    alert('Erro ao enviar. Tente novamente ou nos chame no WhatsApp.');
+    btn.disabled=false;btn.textContent='Quero criar vídeos profissionais →';
+    alert('DEBUG: '+err.message);
   }
 }
 
