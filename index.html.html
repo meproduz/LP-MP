@@ -109,8 +109,8 @@ img{max-width:100%;display:block}
   /* PORTFOLIO mobile: swipe manual, sem auto-scroll */
   .ptv-wrap{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;-webkit-mask:none;mask:none;scrollbar-width:none;scroll-snap-type:x mandatory;padding-bottom:4px}
   .ptv-wrap::-webkit-scrollbar{display:none}
-  .ptv-track{animation:none !important;gap:12px;padding:0 20px 4px}
-  /* Social: esconde SET2 (itens 8-14) no mobile */
+  .ptv-track{animation:none;gap:12px;padding:0 20px 4px}
+  /* Social: esconde SET2 no mobile (restaurado pelo overhaul abaixo) */
   .portfolio-social .ptv-track>.vid-block:nth-child(n+8){display:none}
   .vid-block.wide{width:min(300px,82vw)}
   .vid-block.tall{width:min(170px,46vw)}
@@ -435,6 +435,95 @@ img{max-width:100%;display:block}
 .sec-light{background:linear-gradient(180deg,#FAFAFA 0%,#EBEBEA 100%)}
 @media(min-width:901px){.hero{background:linear-gradient(160deg,#F9F9F7 0%,#EBEBEA 100%)}}
 
+/* ═══════════════════════════════════════════════════
+   VISUAL OVERHAUL — uniformidade dark + fixes mobile
+   ═══════════════════════════════════════════════════ */
+
+/* NAV MOBILE: logo branco no hero escuro */
+@media(max-width:900px){
+  .logo{color:#fff}
+  .logo b{color:var(--accent)}
+  .ham span{background:#fff}
+  .nav.s .logo{color:var(--black)}
+  .nav.s .logo b{color:var(--accent-dark)}
+  .nav.s .ham span{background:var(--black)}
+}
+
+/* LOGO BAR: label legível */
+.logo-bar-label{color:rgba(255,255,255,.55)!important}
+
+/* DARK THEME TOTAL — elimina o salto claro/escuro entre seções */
+.sec-light{background:linear-gradient(180deg,#0D0D0D 0%,#0A0A0A 100%)!important}
+.sec-light .sec-label{color:rgba(200,212,0,.78)}
+.sec-light .sec-title{color:#fff}
+.sec-light .sec-sub{color:rgba(255,255,255,.48)}
+
+/* Capital Intelectual — painéis dark */
+.cap-panel:not(.vp){background:#141414;border-color:rgba(255,255,255,.07)}
+.cap-panel:not(.vp) h3{color:#fff}
+.cap-panel:not(.vp) .cap-panel-tag{color:rgba(200,212,0,.75)}
+.cap-panel:not(.vp) .cap-item{border-bottom-color:rgba(255,255,255,.07)}
+.cap-panel:not(.vp) .cap-icon{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.09)}
+.cap-panel:not(.vp) .cap-icon svg{stroke:rgba(255,255,255,.65);opacity:1}
+.cap-panel:not(.vp) .cap-item-text strong{color:#fff}
+.cap-panel:not(.vp) .cap-item-text span{color:rgba(255,255,255,.42)}
+.gear-item{background:#1A1A1A;border-color:rgba(255,255,255,.08)}
+.gear-item:hover{background:rgba(200,212,0,.07);border-color:rgba(200,212,0,.3)}
+.gear-item span{color:rgba(255,255,255,.78)}
+.gear-icon{opacity:.55}
+
+/* FAQ — dark */
+.faq-list{border-color:rgba(255,255,255,.09)}
+.faq-item{border-bottom-color:rgba(255,255,255,.09)}
+.faq-q{color:#fff;background:transparent}
+.faq-q:hover{background:rgba(255,255,255,.03)}
+.faq-a{color:rgba(255,255,255,.5)}
+
+/* CTA bars: subtítulos mais visíveis */
+.cta-bar-sub{color:rgba(255,255,255,.55)}
+.cta-mid-text p{color:rgba(255,255,255,.52)}
+
+/* Depoimento: iframe embutido (não redireciona) */
+.dep-vid{cursor:pointer}
+.dep-vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+/* Footer: contraste adequado */
+.ft-desc{color:rgba(255,255,255,.45)}
+.ft-col h4{color:rgba(255,255,255,.32)}
+.ft-col a{color:rgba(255,255,255,.45)}
+.ft-col a:hover{color:var(--accent)}
+.footer-bot p{color:rgba(255,255,255,.28)}
+.ft-soc a{color:rgba(255,255,255,.35)}
+
+/* TABELA COMPARATIVA ≤640px: exibe só "Me Produz" (2 colunas) */
+@media(max-width:640px){
+  .comp-wrap{overflow:hidden}
+  .comp-th.them,
+  .comp-trow .comp-td:nth-child(2),
+  .comp-trow .comp-td:nth-child(3){display:none}
+  .comp-thead,.comp-trow{display:flex;justify-content:space-between;align-items:center}
+  .comp-th:first-child,.comp-td:first-child{flex:1;padding:14px 14px;font-size:13px;line-height:1.4}
+  .comp-th.ours{flex-shrink:0;padding:14px 16px;white-space:nowrap;font-size:11px}
+  .comp-td.ours{flex-shrink:0;padding:14px 18px;font-size:18px}
+}
+
+/* PORTFOLIO SOCIAL: auto-scroll reativado no mobile */
+@media(max-width:900px){
+  .portfolio-social .ptv-wrap{
+    overflow:hidden;
+    scroll-snap-type:none;
+    padding-bottom:0;
+    -webkit-mask:linear-gradient(to right,transparent 0%,black 5%,black 95%,transparent 100%);
+    mask:linear-gradient(to right,transparent 0%,black 5%,black 95%,transparent 100%)
+  }
+  .portfolio-social .ptv-track{
+    animation:reel 36s linear infinite!important;
+    padding:0;
+    gap:10px
+  }
+  .portfolio-social .ptv-track>.vid-block:nth-child(n+8){display:flex}
+}
+
 /* RESPONSIVE */
 @media(max-width:1024px){
   .nums-grid{grid-template-columns:repeat(2,1fr)}
@@ -553,15 +642,6 @@ img{max-width:100%;display:block}
           <a href="#portfolio" class="btn-sec">Ver nosso trabalho</a>
         </div>
         <div class="hero-urg">⚡ Vagas limitadas. Atendemos até 5 novos clientes por mês</div>
-        <div class="hero-trust">
-          <div class="trust-faces">
-            <div class="tf tf-1">A</div>
-            <div class="tf tf-2">M</div>
-            <div class="tf tf-3">R</div>
-            <div class="tf tf-4">J</div>
-          </div>
-          <p class="trust-text"><strong>+30 empresas</strong> já crescem com a Me Produz</p>
-        </div>
       </div>
 
       <!-- COLUNA DIREITA — foto equipe -->
@@ -833,7 +913,7 @@ img{max-width:100%;display:block}
       <p class="sec-sub" style="margin:0 auto">Ouça de quem já viveu a experiência.</p>
     </div>
     <div class="dep-grid">
-      <a class="dep-vid rv-scale" href="https://www.youtube.com/shorts/OHwZWyCe6Ww" target="_blank" rel="noopener">
+      <div class="dep-vid rv-scale" data-yt="OHwZWyCe6Ww">
         <img src="https://img.youtube.com/vi/OHwZWyCe6Ww/maxresdefault.jpg" alt="Depoimento Darlan">
         <div class="dep-vid-overlay">
           <div class="dep-vid-play">
@@ -845,7 +925,7 @@ img{max-width:100%;display:block}
             <div class="dep-vid-role">Cliente Me Produz</div>
           </div>
         </div>
-      </a>
+      </div>
     </div>
   </div>
 </section>
@@ -1350,37 +1430,56 @@ async function sub(e){
   }
 }
 
-// YouTube inline player — swipe-friendly no mobile
+// YouTube inline player com pause/resume do carrossel
 (function(){
   var blocks=document.querySelectorAll('.vid-block[data-yt]');
-  // Salva HTML original de cada thumbnail para restaurar depois
   blocks.forEach(function(el){
     el.dataset.origHtml=el.querySelector('.vid-thumb').innerHTML;
   });
+
+  function pauseTrack(el){
+    var tr=el.closest('.ptv-track');
+    if(tr)tr.style.animationPlayState='paused';
+  }
+  function resumeTrack(el){
+    var tr=el.closest('.ptv-track');
+    if(tr)tr.style.animationPlayState='running';
+  }
+
   blocks.forEach(function(el){
     el.addEventListener('click',function(e){
       var thumb=el.querySelector('.vid-thumb');
-      // Botão fechar: restaura thumbnail original
       if(e.target.closest&&e.target.closest('.vid-close')){
         thumb.innerHTML=el.dataset.origHtml;
+        resumeTrack(el);
         return;
       }
-      // Já tem vídeo tocando: não refaz
       if(thumb.querySelector('iframe'))return;
-      // Para todos os outros vídeos em reprodução
       blocks.forEach(function(other){
         if(other!==el){
           var ot=other.querySelector('.vid-thumb');
-          if(ot.querySelector('iframe')) ot.innerHTML=other.dataset.origHtml;
+          if(ot.querySelector('iframe')){
+            ot.innerHTML=other.dataset.origHtml;
+            resumeTrack(other);
+          }
         }
       });
-      // Inicia este vídeo
       var id=el.dataset.yt;
       var isMob=window.innerWidth<=900;
       thumb.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0&modestbranding=1" frameborder="0" allow="autoplay;encrypted-media;picture-in-picture;fullscreen" allowfullscreen></iframe>'
         +(isMob?'<button class="vid-close" title="Fechar vídeo">✕</button>':'');
+      pauseTrack(el);
     });
   });
+
+  // Depoimento inline — embed dentro da LP (não redireciona)
+  var dv=document.querySelector('.dep-vid[data-yt]');
+  if(dv){
+    dv.addEventListener('click',function(){
+      if(dv.querySelector('iframe'))return;
+      dv.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+dv.dataset.yt+'?autoplay=1&rel=0&modestbranding=1" frameborder="0" allow="autoplay;encrypted-media;picture-in-picture;fullscreen" allowfullscreen></iframe>';
+    });
+  }
 })();
 
 // FAQ accordion
