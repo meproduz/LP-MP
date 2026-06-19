@@ -414,8 +414,7 @@ img{max-width:100%;display:block}
   .num-val{font-size:36px}
   .cta-bar-title{font-size:16px}
   .cta-mid-text h2{font-size:22px}
-  /* Tabela: colunas fixas + scroll horizontal */
-  .comp-thead,.comp-trow{grid-template-columns:130px 52px 60px 72px}
+  /* Tabela: scroll já garante 3 colunas no comp-scroll */
   /* Hero: menos padding topo */
   .hero{padding-top:88px}
   /* Form box */
@@ -495,33 +494,31 @@ img{max-width:100%;display:block}
 .footer-bot p{color:rgba(255,255,255,.28)}
 .ft-soc a{color:rgba(255,255,255,.35)}
 
-/* TABELA COMPARATIVA ≤640px: exibe só "Me Produz" (2 colunas) */
-@media(max-width:640px){
-  .comp-wrap{overflow:hidden}
-  .comp-th.them,
-  .comp-trow .comp-td:nth-child(2),
-  .comp-trow .comp-td:nth-child(3){display:none}
-  .comp-thead,.comp-trow{display:flex;justify-content:space-between;align-items:center}
-  .comp-th:first-child,.comp-td:first-child{flex:1;padding:14px 14px;font-size:13px;line-height:1.4}
-  .comp-th.ours{flex-shrink:0;padding:14px 16px;white-space:nowrap;font-size:11px}
-  .comp-td.ours{flex-shrink:0;padding:14px 18px;font-size:18px}
+/* TABELA COMPARATIVA: scroll horizontal em mobile — preserva todas 3 colunas */
+.comp-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:860px;margin:0 auto;border-radius:16px}
+.comp-scroll .comp-wrap{margin:0;border-radius:16px;max-width:none}
+@media(max-width:900px){
+  .comp-scroll{margin:0 -20px;border-radius:0;padding-bottom:8px}
+  .comp-scroll .comp-wrap{min-width:580px;border-radius:0}
 }
 
-/* PORTFOLIO SOCIAL: auto-scroll reativado no mobile */
+/* WAVE BAND — separadores decorativos entre seções */
+.wave-band{width:100%;overflow:hidden;line-height:0;display:block;background:transparent;pointer-events:none}
+.wave-band svg{display:block;width:100%}
+
+/* PORTFOLIO SOCIAL: swipe manual no mobile + navegação por setas */
+.ptv-nav{display:none;align-items:center;justify-content:center;gap:20px;padding:24px 0 0;width:100%}
+.ptv-btn{width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.14);color:#fff;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,border-color .2s,transform .15s;line-height:1;flex-shrink:0;font-family:inherit}
+.ptv-btn:hover{background:rgba(200,212,0,.15);border-color:rgba(200,212,0,.45);transform:scale(1.08)}
+.ptv-btn:active{transform:scale(.94)}
+.ptv-nav-hint{font-size:11px;color:rgba(255,255,255,.28);font-weight:600;letter-spacing:.06em;text-align:center;text-transform:uppercase}
 @media(max-width:900px){
-  .portfolio-social .ptv-wrap{
-    overflow:hidden;
-    scroll-snap-type:none;
-    padding-bottom:0;
-    -webkit-mask:linear-gradient(to right,transparent 0%,black 5%,black 95%,transparent 100%);
-    mask:linear-gradient(to right,transparent 0%,black 5%,black 95%,transparent 100%)
-  }
-  .portfolio-social .ptv-track{
-    animation:reel 36s linear infinite!important;
-    padding:0;
-    gap:10px
-  }
+  .ptv-nav{display:flex}
+  .portfolio-social .ptv-wrap{overflow-x:auto!important;overflow-y:hidden!important;-webkit-overflow-scrolling:touch;-webkit-mask:none!important;mask:none!important;scrollbar-width:none;scroll-snap-type:x mandatory;padding-bottom:0}
+  .portfolio-social .ptv-wrap::-webkit-scrollbar{display:none}
+  .portfolio-social .ptv-track{animation:none!important;padding:0 16px;gap:10px}
   .portfolio-social .ptv-track>.vid-block:nth-child(n+8){display:flex}
+  .portfolio-social .vid-block{scroll-snap-align:start}
 }
 
 /* RESPONSIVE */
@@ -686,6 +683,14 @@ img{max-width:100%;display:block}
     </div>
   </div>
 </section>
+
+<!-- WAVE SEPARATOR -->
+<div class="wave-band" aria-hidden="true">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 56" preserveAspectRatio="none">
+    <path d="M0,28 C240,56 480,0 720,28 C960,56 1200,0 1440,28 L1440,56 L0,56 Z" fill="rgba(200,212,0,0.04)"/>
+    <path d="M0,28 C240,56 480,0 720,28 C960,56 1200,0 1440,28" fill="none" stroke="rgba(200,212,0,0.2)" stroke-width="1.5"/>
+  </svg>
+</div>
 
 <!-- PORTFOLIO INSTITUCIONAL -->
 <section class="portfolio-sec" id="portfolio">
@@ -856,7 +861,22 @@ img{max-width:100%;display:block}
 
     </div>
   </div>
+  <div class="wrap">
+    <div class="ptv-nav">
+      <button class="ptv-btn" onclick="ptvNav(-1)" aria-label="Anterior">&#8592;</button>
+      <span class="ptv-nav-hint">Deslize ou use as setas</span>
+      <button class="ptv-btn" onclick="ptvNav(1)" aria-label="Próximo">&#8594;</button>
+    </div>
+  </div>
 </section>
+
+<!-- WAVE SEPARATOR -->
+<div class="wave-band" aria-hidden="true">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 56" preserveAspectRatio="none">
+    <path d="M0,28 C360,0 720,56 1080,28 C1260,14 1380,42 1440,28 L1440,56 L0,56 Z" fill="rgba(200,212,0,0.04)"/>
+    <path d="M0,28 C360,0 720,56 1080,28 C1260,14 1380,42 1440,28" fill="none" stroke="rgba(200,212,0,0.2)" stroke-width="1.5"/>
+  </svg>
+</div>
 
 <!-- SHOWS & EVENTOS AO VIVO -->
 <section class="portfolio-sec shows-sec" id="eventos">
@@ -930,6 +950,14 @@ img{max-width:100%;display:block}
   </div>
 </section>
 
+<!-- WAVE SEPARATOR -->
+<div class="wave-band" aria-hidden="true">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 56" preserveAspectRatio="none">
+    <path d="M0,28 C240,56 480,0 720,28 C960,56 1200,0 1440,28 L1440,56 L0,56 Z" fill="rgba(200,212,0,0.04)"/>
+    <path d="M0,28 C240,56 480,0 720,28 C960,56 1200,0 1440,28" fill="none" stroke="rgba(200,212,0,0.2)" stroke-width="1.5"/>
+  </svg>
+</div>
+
 <!-- TABELA COMPARATIVA -->
 <section class="comp-sec" id="comparativo">
   <div class="wrap">
@@ -937,7 +965,7 @@ img{max-width:100%;display:block}
       <div class="sec-label">Por que a Me Produz</div>
       <h2 class="sec-title">Somos diferentes. Veja como.</h2>
     </div>
-    <div class="comp-wrap rv-scale">
+    <div class="comp-scroll"><div class="comp-wrap rv-scale">
       <div class="comp-thead">
         <div class="comp-th">O que você precisa</div>
         <div class="comp-th them">Produtora</div>
@@ -986,7 +1014,7 @@ img{max-width:100%;display:block}
         <div class="comp-td no">✗</div>
         <div class="comp-td yes ours">✓</div>
       </div>
-    </div>
+    </div></div>
   </div>
 </section>
 
@@ -1207,6 +1235,14 @@ img{max-width:100%;display:block}
     </div>
   </div>
 </section>
+
+<!-- WAVE SEPARATOR -->
+<div class="wave-band" aria-hidden="true">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 56" preserveAspectRatio="none">
+    <path d="M0,28 C360,0 720,56 1080,28 C1260,14 1380,42 1440,28 L1440,56 L0,56 Z" fill="rgba(200,212,0,0.04)"/>
+    <path d="M0,28 C360,0 720,56 1080,28 C1260,14 1380,42 1440,28" fill="none" stroke="rgba(200,212,0,0.2)" stroke-width="1.5"/>
+  </svg>
+</div>
 
 <!-- CTA BAR PRÉ-FAQ -->
 <div class="cta-bar">
@@ -1481,6 +1517,15 @@ async function sub(e){
     });
   }
 })();
+
+// Social carousel navigation (mobile arrows)
+function ptvNav(dir){
+  var wrap=document.querySelector('.portfolio-social .ptv-wrap');
+  if(!wrap)return;
+  var vid=wrap.querySelector('.vid-block.tall');
+  var step=vid?(vid.offsetWidth+10):180;
+  wrap.scrollBy({left:dir*step,behavior:'smooth'});
+}
 
 // FAQ accordion
 document.querySelectorAll('.faq-q').forEach(btn=>{
