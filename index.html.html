@@ -1253,13 +1253,10 @@ async function sub(e){
     if(res.ok||res.status===201){
       document.getElementById('fWrap').style.display='none';
       document.getElementById('fOk').style.display='block';
-    }else{
-      const body=await res.text();
-      throw new Error('Status '+res.status+' | '+body);
-    }
+    }else throw new Error(res.status);
   }catch(err){
     btn.disabled=false;btn.textContent='Quero criar vídeos profissionais →';
-    alert(err.message);
+    alert('Erro ao enviar. Tente novamente ou nos chame no WhatsApp.');
   }
 }
 
