@@ -95,11 +95,11 @@ img{max-width:100%;display:block}
 
 /* ── LOGO BAR ── */
 .logo-bar{background:var(--bg2);padding:48px 0;overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.logo-bar-label{text-align:center;font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--dim);margin-bottom:30px}
+.logo-bar-label{text-align:center;font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);margin-bottom:30px;text-shadow:0 0 12px rgba(200,212,0,.55),0 0 28px rgba(200,212,0,.25)}
 .logo-track-wrap{overflow:hidden;-webkit-mask:linear-gradient(to right,transparent 0%,#000 8%,#000 92%,transparent 100%);mask:linear-gradient(to right,transparent 0%,#000 8%,#000 92%,transparent 100%)}
 .logo-track{display:flex;align-items:center;gap:14px;width:max-content;animation:reel 40s linear infinite}
 .logo-track:hover{animation-play-state:paused}
-.logo-card{border-radius:12px;height:80px;width:140px;flex-shrink:0;overflow:hidden;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.06);transition:transform .25s,border-color .25s}
+.logo-card{border-radius:12px;height:96px;width:168px;flex-shrink:0;overflow:hidden;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.06);transition:transform .25s,border-color .25s}
 .logo-card:hover{transform:translateY(-2px);border-color:rgba(200,212,0,.22)}
 .logo-item{width:100%;height:100%;object-fit:cover;display:block;opacity:.85;transition:opacity .25s}
 .logo-card:hover .logo-item{opacity:1}
@@ -185,7 +185,7 @@ img{max-width:100%;display:block}
 .comp-th{padding:18px 8px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-align:center;color:var(--muted)}
 .comp-th:first-child{text-align:left;padding-left:28px;color:var(--dim)}
 .comp-th.them{color:rgba(255,255,255,.6)}
-.comp-th.ours{color:var(--accent);background:rgba(200,212,0,.07);font-size:11px;font-weight:800}
+.comp-th.ours{color:#000;background:var(--accent);font-size:11px;font-weight:800}
 .comp-trow{display:grid;grid-template-columns:1fr 108px 118px 136px;border-bottom:1px solid var(--border);align-items:center}
 .comp-trow:last-child{border-bottom:none}
 .comp-trow:hover{background:rgba(255,255,255,.025)}
@@ -193,7 +193,8 @@ img{max-width:100%;display:block}
 .comp-td:first-child{text-align:left;padding-left:28px;padding-right:14px;font-size:14px;font-weight:600;color:rgba(255,255,255,.88)}
 .comp-td.yes{color:var(--accent);font-weight:800}
 .comp-td.no{color:rgba(255,255,255,.25);font-size:16px}
-.comp-td.ours{background:rgba(200,212,0,.05)}
+.comp-td.ours{background:rgba(200,212,0,.1)}
+.comp-td.yes.ours{color:var(--bg);background:rgba(200,212,0,.18);font-size:22px}
 
 /* ── CTA BAR ── */
 .cta-bar{padding:60px 0;background:var(--bg);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
@@ -217,7 +218,7 @@ img{max-width:100%;display:block}
 .cap-panel-tag{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;display:block;opacity:.85}
 .cap-panel h3{font-size:20px;font-weight:800;letter-spacing:-.025em;color:#fff;margin-bottom:28px;line-height:1.2}
 .cap-list{display:flex;flex-direction:column;gap:0}
-.cap-item{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid var(--border)}
+.cap-item{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.13)}
 .cap-item:last-child{border-bottom:none}
 .cap-icon{width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid rgba(255,255,255,.08)}
 .cap-icon svg{opacity:.65;stroke:rgba(255,255,255,.8)}
@@ -334,9 +335,9 @@ img{max-width:100%;display:block}
 
   /* ── HERO ── */
   /* Foto de fundo com gradiente protetor + texto por cima */
-  .hero{background:var(--bg);padding:0;min-height:100svh;display:flex;align-items:flex-end;padding-bottom:48px}
+  .hero{background:var(--bg);padding:0;min-height:100svh;display:flex;align-items:flex-end;padding-bottom:48px;position:relative;overflow:hidden}
   .hero-layout{grid-template-columns:1fr;min-height:unset;padding-top:100px}
-  .hero-right{position:fixed;inset:0;z-index:0;opacity:.6}
+  .hero-right{position:absolute;inset:0;z-index:0;opacity:.6}
   /* Gradiente em L: protege texto no topo/esquerda, abre foto no canto direito/baixo */
   .hero-photo::after{
     content:'';position:absolute;inset:0;
@@ -357,9 +358,15 @@ img{max-width:100%;display:block}
 
   /* ── SEÇÕES — padding compacto e rítmico ── */
   .sec{padding:52px 0}
-  .sec-head{margin-bottom:28px}
+  .sec-head{margin-bottom:28px;text-align:center}
   .sec-title{font-size:clamp(24px,7vw,36px);line-height:1.08}
-  .sec-sub{font-size:15px}
+  .sec-sub{font-size:15px;margin:0 auto;text-align:center}
+  .sec-label{text-align:center}
+  /* Centralizar hero no mobile */
+  .hero-label{text-align:center}
+  .hero-title{text-align:center}
+  .hero-sub{text-align:center;margin:0 auto 32px}
+  .hero-urg{justify-content:center;text-align:center}
   .portfolio-sec{padding:52px 0}
   .portfolio-sec .sec-head{margin-bottom:22px}
   .shows-sec{padding:48px 0}
@@ -374,7 +381,7 @@ img{max-width:100%;display:block}
   /* ── LOGO BAR ── */
   .logo-bar{padding:26px 0}
   .logo-bar-label{margin-bottom:14px;padding:0 18px;font-size:10px}
-  .logo-card{height:54px;width:94px;border-radius:9px}
+  .logo-card{height:66px;width:116px;border-radius:9px}
 
   /* ── WAVE BANDS — menor no mobile ── */
   .wave-band svg{height:44px}
@@ -409,21 +416,18 @@ img{max-width:100%;display:block}
   /* ── DEPOIMENTO ── */
   .dep-vid{max-width:100%;border-radius:12px}
 
-  /* ── TABELA — scroll horizontal visível ── */
-  .comp-scroll{margin:0 -18px;border-radius:0;padding-bottom:6px}
-  .comp-scroll .comp-wrap{min-width:560px;border-radius:0}
-  /* Hint de scroll */
-  .comp-scroll::after{
-    content:'← deslize para ver →';
-    display:block;
-    text-align:center;
-    font-size:10px;
-    font-weight:600;
-    letter-spacing:.06em;
-    text-transform:uppercase;
-    color:rgba(200,212,0,.45);
-    padding:10px 0 2px;
-  }
+  /* ── TABELA — cabe na tela sem scroll ── */
+  .comp-scroll{overflow-x:visible;margin:0;border-radius:12px}
+  .comp-scroll .comp-wrap{min-width:unset;border-radius:12px}
+  .comp-scroll::after{content:none}
+  .comp-thead{grid-template-columns:1fr 48px 48px 64px}
+  .comp-trow{grid-template-columns:1fr 48px 48px 64px}
+  .comp-th{padding:11px 2px;font-size:7.5px;letter-spacing:.03em}
+  .comp-th:first-child{padding-left:12px;font-size:8px}
+  .comp-th.ours{font-size:8px}
+  .comp-td{padding:11px 2px;font-size:17px}
+  .comp-td:first-child{padding-left:12px;padding-right:6px;font-size:11px}
+  .comp-td.yes.ours{font-size:18px}
 
   /* ── CAPITAL — painéis empilhados ── */
   .capital-grid{flex-direction:column;gap:14px}
@@ -503,7 +507,9 @@ img{max-width:100%;display:block}
   .fbox-title{font-size:16px}
   .method-num{width:46px;height:46px;font-size:15px}
   .logo-card{height:48px;width:84px}
-  .comp-scroll .comp-wrap{min-width:520px}
+  .comp-scroll .comp-wrap{min-width:unset}
+  .comp-th{font-size:7px}
+  .comp-td:first-child{font-size:10px}
   .vid-block.tall{width:min(145px,41vw)}
   .vid-block.wide{width:min(270px,86vw)}
 }
@@ -541,7 +547,7 @@ img{max-width:100%;display:block}
   <div class="wrap">
     <div class="hero-layout">
       <div class="hero-left">
-        <div class="hero-label">Produtora de conteúdo estratégico · Salto, SP</div>
+        <div class="hero-label">Produtora de conteúdo audiovisual estratégico · Salto, SP</div>
         <h1 class="hero-title">
           Você cuida do<br>
           <span>negócio.</span><br>
@@ -608,47 +614,6 @@ img{max-width:100%;display:block}
     <rect y="0" width="100%" height="36" fill="url(#zz1a)"/>
     <rect y="36" width="100%" height="36" fill="url(#zz1b)"/>
   </svg>
-</div>
-
-<!-- PORTFOLIO INSTITUCIONAL -->
-<section class="portfolio-sec" id="portfolio">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <div class="sec-label">Conteúdo Institucional</div>
-      <h2 class="sec-title">Vídeos que posicionam sua marca</h2>
-      <p class="sec-sub">Produção completa, do roteiro à entrega final.</p>
-    </div>
-    <div class="ptv-inst-grid rv">
-
-      <div class="vid-block wide" data-yt="kceFOhCC2ng">
-        <div class="vid-thumb wide">
-          <img src="https://img.youtube.com/vi/kceFOhCC2ng/maxresdefault.jpg" alt="JH Inox">
-          <div class="vid-overlay"><div class="vid-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
-        </div>
-        <div class="vid-info"><div class="vid-tag">Indústria · B2B</div><div class="vid-title">JH Inox: Processo produtivo</div></div>
-      </div>
-
-      <div class="vid-block wide" data-yt="PP7JtIVhAZA">
-        <div class="vid-thumb wide">
-          <img src="https://img.youtube.com/vi/PP7JtIVhAZA/maxresdefault.jpg" alt="SAERTEX">
-          <div class="vid-overlay"><div class="vid-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
-        </div>
-        <div class="vid-info"><div class="vid-tag">Indústria · Produto</div><div class="vid-title">SAERTEX: Desenvolvimento de produto</div></div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- CTA BAR -->
-<div class="cta-bar">
-  <div class="wrap">
-    <div class="cta-bar-in">
-      <p class="cta-bar-title rv">Quer um vídeo assim para a sua empresa?</p>
-      <span class="cta-bar-sub rv d1">Atendemos até 5 novos clientes por mês — garanta sua vaga</span>
-      <a href="#contato" class="btn-main rv d2">Quero minha proposta →</a>
-    </div>
-  </div>
 </div>
 
 <!-- PORTFOLIO REDES SOCIAIS -->
@@ -729,6 +694,46 @@ img{max-width:100%;display:block}
     </div>
   </div>
 </section>
+
+<!-- PORTFOLIO INSTITUCIONAL -->
+<section class="portfolio-sec" id="portfolio">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-label">Conteúdo Institucional</div>
+      <h2 class="sec-title">Vídeos que posicionam sua marca</h2>
+      <p class="sec-sub">Produção completa, do roteiro à entrega final.</p>
+    </div>
+    <div class="ptv-inst-grid rv">
+
+      <div class="vid-block wide" data-yt="kceFOhCC2ng">
+        <div class="vid-thumb wide">
+          <img src="https://img.youtube.com/vi/kceFOhCC2ng/maxresdefault.jpg" alt="JH Inox">
+          <div class="vid-overlay"><div class="vid-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+        </div>
+        <div class="vid-info"><div class="vid-tag">Indústria · B2B</div><div class="vid-title">JH Inox: Processo produtivo</div></div>
+      </div>
+
+      <div class="vid-block wide" data-yt="PP7JtIVhAZA">
+        <div class="vid-thumb wide">
+          <img src="https://img.youtube.com/vi/PP7JtIVhAZA/maxresdefault.jpg" alt="SAERTEX">
+          <div class="vid-overlay"><div class="vid-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+        </div>
+        <div class="vid-info"><div class="vid-tag">Indústria · Produto</div><div class="vid-title">SAERTEX: Desenvolvimento de produto</div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAR -->
+<div class="cta-bar">
+  <div class="wrap">
+    <div class="cta-bar-in">
+      <p class="cta-bar-title rv">Quer um vídeo assim para a sua empresa?</p>
+      <a href="#contato" class="btn-main rv d1">Quero minha proposta →</a>
+    </div>
+  </div>
+</div>
 
 <!-- ZIGZAG WAVE 2 -->
 <div class="wave-band" aria-hidden="true">
@@ -883,7 +888,6 @@ img{max-width:100%;display:block}
     <div class="cta-mid-inner">
       <div class="cta-mid-text rv-left">
         <h2>Pronto para ter conteúdo profissional todo mês?</h2>
-        <p>Vagas limitadas. Só abrimos 5 novas parcerias por mês.</p>
       </div>
       <a href="https://wa.me/5511992342160?text=Oi%2C+vim+pelo+site+da+Me+Produz+e+quero+solicitar+um+or%C3%A7amento!" class="btn-main rv-right d1" target="_blank" rel="noopener">Quero minha proposta →</a>
     </div>
@@ -1280,8 +1284,9 @@ function ptvNav(dir){
   var wrap=document.querySelector('.portfolio-social .ptv-wrap');
   if(!wrap)return;
   var vid=wrap.querySelector('.vid-block.tall');
-  var step=vid?(vid.offsetWidth+10):180;
-  wrap.scrollBy({left:dir*step,behavior:'smooth'});
+  var step=vid?(vid.getBoundingClientRect().width+10):180;
+  var target=Math.max(0,wrap.scrollLeft+dir*step);
+  try{wrap.scrollTo({left:target,behavior:'smooth'});}catch(e){wrap.scrollLeft=target;}
 }
 
 // FAQ accordion
