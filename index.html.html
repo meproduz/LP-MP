@@ -1248,7 +1248,7 @@ async function sub(e){
     const res=await fetch(SU+'/rest/v1/leads',{
       method:'POST',
       headers:{'Content-Type':'application/json','apikey':SK,'Authorization':'Bearer '+SK,'Prefer':'return=minimal'},
-      body:JSON.stringify({cliente_id:'4aadcf01-09c5-4873-9c86-00dffdbe4a74',nome:document.getElementById('nome').value.trim(),telefone:document.getElementById('wapp').value.trim(),dificuldade:document.getElementById('dificuldade').value.trim(),origem:'landing_meproduz',status:'novo'})
+      body:JSON.stringify({cliente_id:'4aadcf01-09c5-4873-9c86-00dffdbe4a74',nome:document.getElementById('nome').value.trim(),telefone:document.getElementById('wapp').value.trim(),dificuldade:document.getElementById('dificuldade').value.trim(),observacao:document.getElementById('dificuldade').value.trim(),origem:'landing_meproduz',status:'novo'})
     });
     if(res.ok||res.status===201){
       document.getElementById('fWrap').style.display='none';
