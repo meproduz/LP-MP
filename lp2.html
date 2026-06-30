@@ -142,7 +142,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
 /* ══ NÚMEROS ══ */
 .nums-intro{text-align:center;font-size:13px;font-weight:500;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;margin-bottom:36px}
 .nums-sec{padding:80px 0;background:var(--bg3);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.nums-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.nums-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
 .num-item{text-align:center;padding:36px 20px;border-right:1px solid var(--border)}
 .num-item:last-child{border-right:none}
 .num-val{font-size:clamp(42px,5.5vw,66px);font-weight:900;background:var(--gg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-.055em;line-height:1;margin-bottom:12px}
@@ -348,7 +348,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
   .nums-grid{grid-template-columns:repeat(2,1fr)}
   .num-item{border-right:none;border-bottom:1px solid var(--border)}
   .num-item:nth-child(odd){border-right:1px solid var(--border)}
-  .num-item:last-child,.num-item:nth-last-child(2):nth-child(odd){border-bottom:none}
+  .num-item:last-child{border-bottom:none;border-right:none}
   .steps-grid{grid-template-columns:1fr;border-radius:10px}
   .dep-layout{grid-template-columns:1fr}
   .team-layout{grid-template-columns:1fr;gap:44px}
@@ -543,19 +543,15 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
     <div class="nums-grid">
       <div class="num-item rv">
         <div class="num-val">+14</div>
-        <div class="num-label">Empresas de Salto que pararam de sumir do feed</div>
+        <div class="num-label">Empresas/Marcas confiam na gente para criar seus vídeos</div>
       </div>
       <div class="num-item rv d1">
         <div class="num-val">+300</div>
-        <div class="num-label">Vídeos entregues — cada um pensado para gerar resultado</div>
+        <div class="num-label">Vídeos institucionais e reels entregues</div>
       </div>
       <div class="num-item rv d2">
         <div class="num-val">3+</div>
         <div class="num-label">Anos transformando negócios locais em referência digital</div>
-      </div>
-      <div class="num-item rv d3">
-        <div class="num-val">5★</div>
-        <div class="num-label">A nota que todos os nossos clientes deram</div>
       </div>
     </div>
   </div>
@@ -566,8 +562,8 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
   <div class="wrap">
     <div class="sec-head rv">
       <div class="label-tag">Nosso processo</div>
-      <h2 class="sec-title">3 passos. Um dia de produção.<br>Vídeo profissional para o mês todo.</h2>
-      <p class="sec-sub" style="margin:0 auto;text-align:center">Sem reunião toda semana. Sem você ficar pensando no que gravar. Sem surpresa.</p>
+      <h2 class="sec-title">3 passos. Um dia de produção.<br>Vídeo profissional para o mês inteiro.</h2>
+      <p class="sec-sub" style="margin:0 auto;text-align:center">Não é mágica, é uma metodologia criada a partir de anos na indústria audiovisual.</p>
     </div>
     <div class="steps-grid">
       <div class="step-card rv d1">
@@ -589,16 +585,14 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
           <div class="step-item">Equipe completa com câmera, luz e direção</div>
           <div class="step-item">Edição com a identidade da sua marca</div>
         </div>
-        <div class="step-badge">🎬 Estúdio exclusivo para clientes MeProduz.</div>
       </div>
       <div class="step-card rv d3">
         <div class="step-num-label">Passo 03</div>
-        <div class="step-title">Você vende. A gente cuida do resto.</div>
+        <div class="step-title">Você recebe os leads. A gente cuida do resto.</div>
         <p class="step-desc">Entregamos os vídeos editados, gerenciamos a programação e acompanhamos os dados. Todo mês você recebe um relatório mostrando o que está funcionando — e o que vamos melhorar.</p>
         <div class="step-items">
           <div class="step-item">Programação de vídeos do mês</div>
           <div class="step-item">Relatório de resultados</div>
-          <div class="step-item">Suporte direto por WhatsApp</div>
         </div>
       </div>
     </div>
@@ -611,7 +605,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
     <div class="sec-head rv">
       <div class="label-tag">Portfólio</div>
       <h2 class="sec-title">Esse é o tipo de vídeo que a gente produz.</h2>
-      <p class="sec-sub" style="margin:0 auto;text-align:center">Vídeos para negócios reais da região. Assiste. Depois imagina isso no perfil da sua empresa.</p>
+      <p class="sec-sub" style="margin:0 auto;text-align:center">Vídeos com essa qualidade audiovisual. Imagina isso no perfil da sua empresa!</p>
     </div>
   </div>
   <div class="ptv-wrap">
@@ -647,7 +641,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
       </div>
       <div class="team-content rv-right">
         <div class="label-tag">Por trás da câmera</div>
-        <h2 class="sec-title">Você não está contratando uma agência.<br>Está fazendo negócio com pessoas.</h2>
+        <h2 class="sec-title">Aqui você não é só mais um número.<br>Está fazendo negócio com pessoas.</h2>
         <div class="team-divider"></div>
         <p>Allan e Tainá fundaram a MeProduz. Studio com um objetivo simples: <strong>toda empresa boa merece aparecer do jeito certo.</strong></p>
         <p>Quando você faz negócio com a gente, é com a gente mesmo que você fala — do diagnóstico ao último vídeo entregue. <strong>Sem intermediário. Sem estagiário respondendo por nós.</strong></p>
