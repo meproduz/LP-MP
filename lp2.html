@@ -47,7 +47,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
 
 /* TYPE */
 .label-tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
-.label-tag::before{content:'— ';opacity:.45}
+.label-tag::before{content:'';opacity:.45}
 .sec-title{font-size:clamp(28px,4vw,52px);font-weight:800;letter-spacing:-.045em;line-height:1.03;color:#fff;margin-bottom:16px}
 .sec-sub{font-size:16px;font-weight:300;color:var(--muted);max-width:520px;line-height:1.8}
 .sec-head{margin-bottom:72px}
@@ -63,7 +63,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
 .nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:20px 0;transition:var(--ease)}
 .nav.s{background:rgba(9,8,0,.96);backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);padding:13px 0;border-bottom:1px solid var(--border)}
 .nav-in{display:flex;align-items:center;justify-content:space-between}
-.nav-logo{height:52px;width:auto}
+.nav-logo{height:68px;width:auto}
 .nav-links{display:flex;align-items:center;gap:32px;list-style:none}
 .nav-links a{font-size:13px;font-weight:500;color:var(--muted);transition:color .2s;letter-spacing:.02em}
 .nav-links a:hover{color:var(--gold)}
@@ -78,7 +78,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
 .mob-x{position:absolute;top:24px;right:28px;font-size:20px;cursor:pointer;background:none;border:none;color:var(--muted)}
 
 /* ══ HERO ══ */
-.hero{min-height:100svh;display:flex;align-items:center;position:relative;overflow:hidden;padding:140px 0 100px}
+.hero{min-height:100svh;display:flex;align-items:center;position:relative;overflow:hidden;padding:140px 0 170px}
 .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.17}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(9,8,0,.55) 0%,rgba(9,8,0,.65) 55%,var(--bg) 100%)}
 .hero-glow{position:absolute;top:-15%;left:50%;transform:translateX(-50%);width:900px;height:900px;background:radial-gradient(ellipse,rgba(201,162,39,.07) 0%,transparent 60%);pointer-events:none}
@@ -236,8 +236,9 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
 .comp-td{padding:16px 8px;text-align:center;font-size:18px}
 .comp-td:first-child{text-align:left;padding-left:28px;padding-right:14px;font-size:13px;font-weight:500;color:rgba(255,255,255,.8)}
 .comp-td.yes{color:var(--gold)}
+.comp-td.yes.ours{color:#22C55E;font-size:22px;font-weight:700}
 .comp-td.no{color:rgba(255,255,255,.14);font-size:15px}
-.comp-td.ours{background:rgba(201,162,39,.06)}
+.comp-td.ours{background:rgba(201,162,39,.11)}
 .comp-tagline{max-width:820px;margin:24px auto 0;text-align:center;font-size:14px;color:var(--muted)}
 .comp-tagline strong{color:rgba(255,255,255,.8)}
 
@@ -347,7 +348,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
   .hero-trust{flex-direction:column;gap:8px}
   .nums-grid{grid-template-columns:repeat(2,1fr)}
   .footer-in{grid-template-columns:1fr}
-  .nav-logo{height:42px}
+  .nav-logo{height:54px}
 }
 </style>
 </head>
@@ -394,7 +395,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
       <span class="block thin">E transforma isso em <span class="gold" style="font-weight:800">Vídeos</span>.</span>
     </h1>
     <p class="hero-sub">
-      Cuidamos do seu marketing para que você <strong>não precise largar o seu negócio.</strong>
+      Cuidamos do vídeo pra que você possa <strong>focar no que faz melhor.</strong>
     </p>
     <div class="hero-cta">
       <a href="#contato" class="btn-gold">Quero meu diagnóstico gratuito →</a>
@@ -460,7 +461,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
     <div class="pain-intro rv">
       <div class="label-tag">Isso soa familiar?</div>
       <h2 class="sec-title">Você sabia que precisava de vídeo.<br>Mas mais uma semana passou e você não fez nada.</h2>
-      <p class="pain-intro-extra">E o pior? Você abre o Instagram do seu concorrente e ele está lá. Todo dia. Com vídeo bom.<br>Enquanto o seu perfil dorme há semanas — e você ainda não decidiu o que falar.</p>
+      <p class="pain-intro-extra">E o pior? Você abre o Instagram do seu concorrente e ele está lá. Todo dia. Com vídeo bom.<br>Enquanto o seu perfil dorme há semanas, e você ainda não decidiu o que falar.</p>
     </div>
     <div class="pain-grid">
       <div class="pain-card rv d1"><span class="pain-x">❌</span><p class="pain-text">Você some do feed por semanas.</p></div>
@@ -515,7 +516,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
         <div class="num-label">Empresas/Marcas confiam na gente para criar seus vídeos</div>
       </div>
       <div class="num-item rv d1">
-        <div class="num-val">+300</div>
+        <div class="num-val">+346</div>
         <div class="num-label">Vídeos institucionais e reels entregues</div>
       </div>
       <div class="num-item rv d2">
@@ -538,7 +539,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
       <div class="step-card rv d1">
         <div class="step-num-label">Passo 01</div>
         <div class="step-title">A gente entende o que te diferencia</div>
-        <p class="step-desc">Antes de ligar qualquer câmera, a gente estuda. Pesquisamos referências do seu segmento, mapeamos o que diferencia você dos concorrentes e apresentamos tudo numa estratégia. Ali definimos públicos, objetivos e direção criativa. Você vê antes de avançar.</p>
+        <p class="step-desc">Antes de ligar qualquer câmera, a gente estuda seu negócio, o que te diferencia, o que seu cliente precisa ver. Você aprova tudo antes de gravar.</p>
         <div class="step-items">
           <div class="step-item">Pesquisa de referências e mercado</div>
           <div class="step-item">Definição de públicos e objetivos</div>
@@ -548,9 +549,9 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
       <div class="step-card rv d2">
         <div class="step-num-label">Passo 02</div>
         <div class="step-title">Um dia. O mês inteiro resolvido.</div>
-        <p class="step-desc">Com o roteiro pronto e a estratégia definida, você vem ao nosso estúdio — ou nossa equipe vai até você. Em um único dia de captação, produzimos todos os vídeos do mês. Você não precisa improvisar nada.</p>
+        <p class="step-desc">Roteiro pronto, você chega e a gente grava o mês inteiro de conteúdo em um dia só.</p>
         <div class="step-items">
-          <div class="step-item">Roteiro pronto — você só fala</div>
+          <div class="step-item">Roteiro pronto, você só fala</div>
           <div class="step-item">Equipe completa com câmera, luz e direção</div>
           <div class="step-item">Edição com a identidade da sua marca</div>
         </div>
@@ -558,7 +559,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
       <div class="step-card rv d3">
         <div class="step-num-label">Passo 03</div>
         <div class="step-title">Você recebe os leads. A gente cuida do resto.</div>
-        <p class="step-desc">Entregamos os vídeos editados, gerenciamos a programação e acompanhamos os dados. Todo mês você recebe um relatório mostrando o que está funcionando — e o que vamos melhorar.</p>
+        <p class="step-desc">Vídeo editado, legenda, programação e relatório no fim do mês. Você só recebe o resultado.</p>
         <div class="step-items">
           <div class="step-item">Programação de vídeos do mês</div>
           <div class="step-item">Relatório de resultados</div>
@@ -600,7 +601,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
     <div class="team-layout">
       <div class="team-img-wrap rv-left">
         <div class="team-img">
-          <img src="assets/DSC04884-Aprimorado-NR.jpg" alt="Allan e Tainá — MeProduz. Studio">
+          <img src="assets/DSC04884-Aprimorado-NR.jpg" alt="Allan e Thayná - MeProduz. Studio">
           <div class="team-names">
             <div class="team-name-tag"><div class="tname">Allan Toledo</div><div class="trole">Produção & Criação</div></div>
             <div class="team-name-tag"><div class="tname">Thayná Toledo</div><div class="trole">Direção & Estratégia</div></div>
@@ -612,9 +613,9 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
         <div class="label-tag">Por trás da câmera</div>
         <h2 class="sec-title">Aqui você não é só mais um número.<br>Está fazendo negócio com pessoas.</h2>
         <div class="team-divider"></div>
-        <p>Allan e Tainá fundaram a MeProduz. Studio com um objetivo simples: <strong>toda empresa boa merece aparecer do jeito certo.</strong></p>
-        <p>Quando você faz negócio com a gente, é com a gente mesmo que você fala — do diagnóstico ao último vídeo entregue. <strong>Sem intermediário. Sem estagiário respondendo por nós.</strong></p>
-        <p>E agora temos o nosso próprio estúdio — um espaço montado do zero, exclusivo para os nossos clientes, com iluminação, cenário e equipamento prontos para produzir. Não é luxo. É o compromisso que assumimos com quem confia no nosso trabalho.</p>
+        <p>Allan e Thayná fundaram a MeProduz. Studio porque acreditam que <strong>toda empresa boa merece aparecer do jeito certo.</strong></p>
+        <p>Quando você faz negócio com a gente, é com a gente mesmo que você fala, do primeiro contato até o último vídeo entregue. <strong>Sem intermediário. Sem estagiário respondendo por nós.</strong></p>
+        <p>E a gente tem o próprio estúdio, um espaço exclusivo para os clientes, com iluminação, cenário e equipamento prontos para produzir. Não é luxo. É o compromisso que a gente assumiu com quem confia no trabalho.</p>
         <a href="#contato" class="btn-ghost" style="margin-top:32px">Vamos conversar →</a>
       </div>
     </div>
@@ -627,7 +628,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
     <div class="sec-head rv" style="text-align:center">
       <div class="label-tag">O que está incluso</div>
       <h2 class="sec-title">Tudo. Num pacote só.<br>Sem surpresa no final.</h2>
-      <p class="sec-sub" style="margin:0 auto">Não é só produção de vídeo. É a sua presença digital resolvida — de ponta a ponta.</p>
+      <p class="sec-sub" style="margin:0 auto">Estratégia, roteiro, gravação, edição e publicação. Tudo num pacote só.</p>
     </div>
     <div class="offer-grid">
       <div class="offer-list">
@@ -635,42 +636,42 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
           <div class="offer-icon">🔍</div>
           <div>
             <div class="offer-item-title">Do estudo ao resultado</div>
-            <div class="offer-item-desc">O cliente chega, a gente pesquisa. Estudamos referências do seu segmento, identificamos o que te diferencia e apresentamos tudo numa estratégia. Ali definimos públicos, objetivos e direção criativa — antes de ligar qualquer câmera.</div>
+            <div class="offer-item-desc">Você chega, a gente estuda seu segmento, identifica o que te diferencia e apresenta a estratégia. Você aprova antes de gravar qualquer coisa.</div>
           </div>
         </div>
         <div class="offer-item rv d2">
           <div class="offer-icon">🎬</div>
           <div>
             <div class="offer-item-title">Roteiro pronto. Você só fala.</div>
-            <div class="offer-item-desc">Nada de improvisar sem saber o que dizer. Escrevemos cada cena. Você aprova. No dia da gravação, você chega — a gente dirige.</div>
+            <div class="offer-item-desc">Nada de improvisar sem saber o que dizer. Escrevemos cada cena, você aprova e no dia da gravação você chega e a gente dirige.</div>
           </div>
         </div>
         <div class="offer-item rv d3">
           <div class="offer-icon">📹</div>
           <div>
             <div class="offer-item-title">Um dia. O mês inteiro resolvido.</div>
-            <div class="offer-item-desc">Câmera, iluminação e direção — no nosso estúdio ou no seu espaço. Produção profissional de verdade, não vídeo de celular.</div>
+            <div class="offer-item-desc">Câmera, iluminação e direção no nosso estúdio ou no seu espaço. Produção profissional, não vídeo de celular.</div>
           </div>
         </div>
         <div class="offer-item rv d4">
           <div class="offer-icon">✂️</div>
           <div>
             <div class="offer-item-title">Edição com a cara da sua empresa</div>
-            <div class="offer-item-desc">Não é template. Não é genérico. Cada vídeo sai com a identidade da sua marca — corte, trilha, legenda e motion inclusos.</div>
+            <div class="offer-item-desc">Cada vídeo sai com a identidade da sua marca, com corte, trilha, legenda e motion inclusos. Nada de template.</div>
           </div>
         </div>
         <div class="offer-item rv d5">
           <div class="offer-icon">📊</div>
           <div>
             <div class="offer-item-title">Você sabe exatamente o que está funcionando</div>
-            <div class="offer-item-desc">Todo mês: relatório de alcance, engajamento e crescimento. Sem achismo. Dados reais para decisões reais.</div>
+            <div class="offer-item-desc">Sem achismo. Todo mês você vê o que funcionou e onde o seu dinheiro foi investido.</div>
           </div>
         </div>
       </div>
       <div class="offer-cta-box rv-right">
         <span class="offer-cta-label">Próximo passo</span>
         <h3 class="offer-cta-title">Comece com um diagnóstico. De graça.</h3>
-        <p class="offer-cta-sub">30 minutos. A gente analisa sua presença digital atual e te mostra, na prática, como ficaria com a MeProduz. Studio. Sem enrolação.</p>
+        <p class="offer-cta-sub">30 minutos. A gente analisa seu negócio e te mostra, na prática, como ficaria com a MeProduz. Studio. Sem enrolação.</p>
         <a href="#contato" class="btn-gold" style="width:100%;justify-content:center">Agendar diagnóstico gratuito →</a>
         <p class="offer-guarantee">🛡 Sem pressão de venda. Se não fizer sentido, encerramos amigos.</p>
       </div>
@@ -689,7 +690,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
       <div class="comp-thead">
         <div class="comp-th">O que você precisa</div>
         <div class="comp-th">Fazer sozinho</div>
-        <div class="comp-th">Freela / Agência</div>
+        <div class="comp-th">Freela / Videomaker</div>
         <div class="comp-th ours">MeProduz. Studio</div>
       </div>
       <div class="comp-trow"><div class="comp-td">Vídeo consistente toda semana</div><div class="comp-td no">✕</div><div class="comp-td" style="font-size:16px">⚠️</div><div class="comp-td yes ours">✓</div></div>
@@ -699,7 +700,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
       <div class="comp-trow"><div class="comp-td">Sem contrato de longo prazo</div><div class="comp-td yes">✓</div><div class="comp-td no">✕</div><div class="comp-td yes ours">✓</div></div>
       <div class="comp-trow"><div class="comp-td">Suporte direto com quem produz</div><div class="comp-td no">✕</div><div class="comp-td no">✕</div><div class="comp-td yes ours">✓</div></div>
     </div>
-    <p class="comp-tagline rv">O freela entrega o vídeo. A gente entrega resultado. <strong>Existe diferença.</strong></p>
+    <p class="comp-tagline rv">Sem achismo. Todo mês você vê o que funcionou e onde o seu dinheiro foi investido.</p>
   </div>
 </section>
 
