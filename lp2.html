@@ -63,7 +63,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
 .nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:20px 0;transition:var(--ease)}
 .nav.s{background:rgba(9,8,0,.96);backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);padding:13px 0;border-bottom:1px solid var(--border)}
 .nav-in{display:flex;align-items:center;justify-content:space-between}
-.nav-logo{height:68px;width:auto}
+.nav-logo{height:120px;width:auto}
 .nav-links{display:flex;align-items:center;gap:32px;list-style:none}
 .nav-links a{font-size:13px;font-weight:500;color:var(--muted);transition:color .2s;letter-spacing:.02em}
 .nav-links a:hover{color:var(--gold)}
@@ -200,6 +200,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
 .team-name-tag .tname{font-size:14px;font-weight:700;color:#fff;letter-spacing:-.01em}
 .team-name-tag .trole{font-size:10px;font-weight:500;color:var(--gold);letter-spacing:.08em;text-transform:uppercase;margin-top:2px}
 .team-content .label-tag{display:block;margin-bottom:20px}
+.team-img-wrap .label-tag{display:block;margin-bottom:14px}
 .team-content .sec-title{margin-bottom:28px}
 .team-content p{font-size:15px;color:var(--muted);line-height:1.82;margin-bottom:20px}
 .team-content p:last-of-type{margin-bottom:0}
@@ -348,7 +349,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
   .hero-trust{flex-direction:column;gap:8px}
   .nums-grid{grid-template-columns:repeat(2,1fr)}
   .footer-in{grid-template-columns:1fr}
-  .nav-logo{height:54px}
+  .nav-logo{height:88px}
 }
 </style>
 </head>
@@ -600,6 +601,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
   <div class="wrap">
     <div class="team-layout">
       <div class="team-img-wrap rv-left">
+        <div class="label-tag">Por trás da câmera</div>
         <div class="team-img">
           <img src="assets/DSC04884-Aprimorado-NR.jpg" alt="Allan e Thayná - MeProduz. Studio">
           <div class="team-names">
@@ -610,12 +612,11 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
         <div class="team-img-frame"></div>
       </div>
       <div class="team-content rv-right">
-        <div class="label-tag">Por trás da câmera</div>
         <h2 class="sec-title">Aqui você não é só mais um número.<br>Está fazendo negócio com pessoas.</h2>
         <div class="team-divider"></div>
-        <p>Allan e Thayná fundaram a MeProduz. Studio porque acreditam que <strong>toda empresa boa merece aparecer do jeito certo.</strong></p>
-        <p>Quando você faz negócio com a gente, é com a gente mesmo que você fala, do primeiro contato até o último vídeo entregue. <strong>Sem intermediário. Sem estagiário respondendo por nós.</strong></p>
-        <p>E a gente tem o próprio estúdio, um espaço exclusivo para os clientes, com iluminação, cenário e equipamento prontos para produzir. Não é luxo. É o compromisso que a gente assumiu com quem confia no trabalho.</p>
+        <p>Quando você fecha com a MeProduz. Studio, você fala diretamente com quem vai produzir o seu vídeo, do primeiro contato até a entrega. <strong>Sem intermediário. Sem estagiário respondendo por nós.</strong></p>
+        <p>A MeProduz. Studio tem estúdio próprio, exclusivo para clientes, com iluminação, cenário e equipamento prontos para produzir. Um espaço criado pra cada gravação ser mais prática e profissional.</p>
+        <p>Porque toda empresa boa merece aparecer do jeito certo.</p>
         <a href="#contato" class="btn-ghost" style="margin-top:32px">Vamos conversar →</a>
       </div>
     </div>
@@ -665,6 +666,13 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
           <div>
             <div class="offer-item-title">Você sabe exatamente o que está funcionando</div>
             <div class="offer-item-desc">Sem achismo. Todo mês você vê o que funcionou e onde o seu dinheiro foi investido.</div>
+          </div>
+        </div>
+        <div class="offer-item rv d5">
+          <div class="offer-icon">🎯</div>
+          <div>
+            <div class="offer-item-title">Tráfego pago incluso no pacote</div>
+            <div class="offer-item-desc">Existem pacotes que contemplam gestão de tráfego pago. A MeProduz. gerencia o impulsionamento dos vídeos que produz, garantindo que o conteúdo chegue ao público certo, sem depender só do orgânico, e com isso a estratégia acordada no início é executada do jeito certo.</div>
           </div>
         </div>
       </div>
