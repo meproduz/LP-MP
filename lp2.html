@@ -335,6 +335,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
 /* ══ RESPONSIVE ══ */
 @media(max-width:900px){
   .wrap{padding:0 20px}
+  .hero-video{display:none}
   .hero-orb-1{width:280px;height:280px;filter:blur(40px)}
   .hero-orb-2{display:none}
   .nav-links{display:none}
@@ -407,8 +408,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
 
 <!-- ══ HERO ══ -->
 <section class="hero" id="inicio">
-  <video class="hero-video" autoplay muted loop playsinline></video>
-  <script>var _hv=document.querySelector('.hero-video');_hv.src=window.innerWidth<901?'assets/bg-capital-mobile.mp4':'assets/bg-capital.mp4';_hv.load();</script>
+  <video class="hero-video" autoplay muted loop playsinline src="assets/bg-capital.mp4"></video>
   <div class="hero-overlay"></div>
   <div class="hero-glow"></div>
   <div class="hero-orb hero-orb-1"></div>
