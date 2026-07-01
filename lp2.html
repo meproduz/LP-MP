@@ -407,10 +407,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
 
 <!-- ══ HERO ══ -->
 <section class="hero" id="inicio">
-  <video class="hero-video" autoplay muted loop playsinline>
-    <source src="assets/bg-capital.mp4" media="(min-width:901px)" type="video/mp4">
-    <source src="assets/bg-capital-mobile.mp4" type="video/mp4">
-  </video>
+  <video class="hero-video" autoplay muted loop playsinline></video>
   <div class="hero-overlay"></div>
   <div class="hero-glow"></div>
   <div class="hero-orb hero-orb-1"></div>
@@ -850,6 +847,14 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
 <script>
 const SU='https://rylexblaolbiovfmrwvi.supabase.co';
 const SK='sb_publishable_WW_IkaY7yE-IyDLyy6Kc6w_2tZ5MMPp';
+
+// Hero video: qualidade por dispositivo
+(function(){
+  var v=document.querySelector('.hero-video');
+  if(!v)return;
+  v.src=window.innerWidth<901?'assets/bg-capital-mobile.mp4':'assets/bg-capital.mp4';
+  v.load();
+})();
 
 // NAV scroll
 window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('s',window.scrollY>40);});
