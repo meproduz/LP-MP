@@ -206,33 +206,6 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
 .team-content strong{color:rgba(255,255,255,.85);font-weight:600}
 .team-divider{width:36px;height:2px;background:var(--gg);margin:32px 0}
 
-/* ══ DEPOIMENTOS ══ */
-.dep-sec{padding:108px 0;background:var(--bg2)}
-.dep-sec .sec-head{text-align:center}
-.dep-layout{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
-.dep-vid{width:100%;display:block;border-radius:12px;overflow:hidden;position:relative;background:#0a0900;aspect-ratio:4/5;cursor:pointer;border:1px solid var(--border)}
-.dep-vid img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
-.dep-vid:hover img{transform:scale(1.03)}
-.dep-vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.dep-vid-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.75) 0%,transparent 55%);display:flex;flex-direction:column;justify-content:space-between;padding:24px}
-.dep-play{width:54px;height:54px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;transition:transform .2s;box-shadow:0 4px 24px rgba(0,0,0,.5)}
-.dep-vid:hover .dep-play{transform:scale(1.08)}
-.dep-play svg{margin-left:3px}
-.dep-info .dep-name{font-size:16px;font-weight:700;color:#fff}
-.dep-info .dep-role{font-size:11px;color:rgba(255,255,255,.5)}
-.dep-right{display:flex;flex-direction:column;gap:20px}
-.dep-empty{background:rgba(201,162,39,.03);border:1px dashed rgba(201,162,39,.18);border-radius:10px;padding:36px 28px;text-align:center}
-.dep-empty-icon{font-size:30px;margin-bottom:14px}
-.dep-empty-text{font-size:14px;color:var(--muted);line-height:1.7}
-.dep-empty-text strong{color:rgba(255,255,255,.75)}
-.dep-quote{background:rgba(201,162,39,.04);border:1px solid var(--border);border-radius:10px;padding:28px;position:relative}
-.dep-quote::before{content:'"';position:absolute;top:14px;left:20px;font-size:52px;color:var(--gold);opacity:.25;line-height:1;font-family:Georgia,serif}
-.dep-quote-text{font-size:14px;color:rgba(255,255,255,.78);line-height:1.7;padding-top:22px}
-.dep-author{margin-top:18px;display:flex;align-items:center;gap:12px}
-.dep-avatar{width:36px;height:36px;border-radius:50%;background:rgba(201,162,39,.15);border:1.5px solid rgba(201,162,39,.3);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--gold);flex-shrink:0}
-.dep-author-name{font-size:13px;font-weight:700;color:#fff}
-.dep-author-role{font-size:11px;color:var(--muted)}
-
 /* ══ OFERTA ══ */
 .offer-sec{padding:108px 0;background:var(--bg3)}
 .offer-sec .sec-head{text-align:center}
@@ -350,8 +323,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
   .num-item:nth-child(odd){border-right:1px solid var(--border)}
   .num-item:last-child{border-bottom:none;border-right:none}
   .steps-grid{grid-template-columns:1fr;border-radius:10px}
-  .dep-layout{grid-template-columns:1fr}
-  .team-layout{grid-template-columns:1fr;gap:44px}
+.team-layout{grid-template-columns:1fr;gap:44px}
   .team-img-wrap{max-width:400px;margin:0 auto}
   .offer-grid{grid-template-columns:1fr}
   .offer-cta-box{position:static}
@@ -649,39 +621,6 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
   </div>
 </section>
 
-<!-- ══ DEPOIMENTOS ══ -->
-<section class="dep-sec sec" id="depoimentos">
-  <div class="wrap">
-    <div class="sec-head rv" style="text-align:center">
-      <div class="label-tag">Resultados reais</div>
-      <h2 class="sec-title">Não acredite em nós.<br>Acredite neles.</h2>
-      <p class="sec-sub" style="margin:0 auto">Empresários da região que decidiram parar de sumir do feed.</p>
-    </div>
-    <div class="dep-layout">
-      <div class="dep-vid rv-left" data-yt="z0JGr1Ni3TU" id="depVid">
-        <img src="assets/thumb-depoimento.png" alt="Depoimento cliente">
-        <div class="dep-vid-overlay">
-          <div class="dep-play"><svg width="18" height="18" viewBox="0 0 24 24" fill="#000"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
-          <div class="dep-info"><span class="dep-name">Cliente Me Produz</span><span class="dep-role">Empresário local · Salto, SP</span></div>
-        </div>
-      </div>
-      <div class="dep-right rv-right">
-        <div class="dep-empty d1">
-          <div class="dep-empty-icon">💬</div>
-          <p class="dep-empty-text"><strong>Em breve aqui.</strong><br>Estamos coletando depoimentos reais dos nossos clientes. Cada história é única — e vai aparecer nesse espaço com nome, negócio e resultado real.</p>
-        </div>
-        <div class="dep-quote d2">
-          <p class="dep-quote-text">"Antes eu ficava meses sem postar. Depois da MeProduz. Studio, tenho vídeo novo toda semana e comecei a receber mensagens de clientes dizendo que me viram no Instagram."</p>
-          <div class="dep-author">
-            <div class="dep-avatar">★</div>
-            <div><div class="dep-author-name">Cliente MeProduz.</div><div class="dep-author-role">Empresário · Salto, SP</div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ══ OFERTA ══ -->
 <section class="offer-sec" id="oferta">
   <div class="wrap">
@@ -923,14 +862,6 @@ function ptvNav(dir){
       thumb.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0&modestbranding=1" allow="autoplay;encrypted-media;picture-in-picture;fullscreen" allowfullscreen></iframe>'+(isMob?'<button class="vid-close">✕</button>':'');
     });
   });
-  // Depoimento
-  var dv=document.getElementById('depVid');
-  if(dv&&dv.dataset.yt){
-    dv.addEventListener('click',function(){
-      if(dv.querySelector('iframe'))return;
-      dv.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+dv.dataset.yt+'?autoplay=1&rel=0" allow="autoplay;encrypted-media;fullscreen" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe>';
-    });
-  }
 })();
 
 // Form submit
