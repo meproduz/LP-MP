@@ -166,7 +166,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
 .num-label{font-size:12px;font-weight:400;color:var(--muted);line-height:1.55;max-width:130px;margin:0 auto}
 
 /* ══ COMO FUNCIONA ══ */
-.how-sec{padding:108px 0;background:var(--bg);position:relative;overflow:hidden}
+.how-sec{padding:108px 0;background:linear-gradient(rgba(9,8,0,.91),rgba(9,8,0,.91)),url('assets/shot-gimbal.png') center/cover;position:relative;overflow:hidden}
 .how-sec::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:1100px;height:800px;background:radial-gradient(ellipse,rgba(201,162,39,.11) 0%,transparent 62%);pointer-events:none}
 .how-sec .sec-head{text-align:center;position:relative;z-index:1}
 .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden;position:relative;z-index:1}
@@ -183,16 +183,6 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
 .step-item::before{content:'✓';color:var(--gold);font-weight:700;flex-shrink:0;font-size:11px;margin-top:2px}
 .step-badge{display:inline-flex;align-items:center;gap:6px;margin-top:22px;padding:7px 14px;background:rgba(201,162,39,.07);border:1px solid var(--border);border-radius:100px;font-size:11px;font-weight:600;color:var(--gold);letter-spacing:.05em}
 
-/* ══ BASTIDORES ══ */
-.shots-sec{background:var(--bg);padding-bottom:0}
-.shots-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;margin-top:52px}
-.shot-item{aspect-ratio:3/4;overflow:hidden;position:relative;cursor:pointer}
-.shot-item img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .6s cubic-bezier(.4,0,.2,1)}
-.shot-item:hover img{transform:scale(1.05)}
-.shot-item::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(9,8,0,.65) 0%,rgba(9,8,0,.1) 45%,transparent 70%);transition:opacity .4s}
-.shot-item:hover::after{opacity:.6}
-.shot-label{position:absolute;bottom:18px;left:20px;right:20px;z-index:2;font-size:11px;font-weight:600;color:rgba(255,255,255,.75);letter-spacing:.08em;text-transform:uppercase;opacity:0;transform:translateY(6px);transition:opacity .35s,transform .35s}
-.shot-item:hover .shot-label{opacity:1;transform:none}
 
 /* ══ PORTFÓLIO ══ */
 .ptf-sec{padding:108px 0;background:var(--bg2)}
@@ -219,7 +209,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
 .ptv-nav-hint{font-size:11px;color:var(--muted);letter-spacing:.08em}
 
 /* ══ EQUIPE ══ */
-.team-sec{padding:108px 0;background:var(--bg3);position:relative;overflow:hidden}
+.team-sec{padding:108px 0;background:linear-gradient(rgba(9,8,0,.90),rgba(9,8,0,.90)),url('assets/shot-garagem.png') center/cover;position:relative;overflow:hidden}
 .team-sec::before{content:'';position:absolute;top:50%;left:-80px;transform:translateY(-50%);width:600px;height:600px;background:radial-gradient(ellipse at left,rgba(201,162,39,.08) 0%,transparent 65%);pointer-events:none}
 .team-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
 .team-img-wrap{position:relative;isolation:isolate}
@@ -240,7 +230,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
 .team-divider{width:36px;height:2px;background:var(--gg);margin:32px auto}
 
 /* ══ OFERTA ══ */
-.offer-sec{padding:108px 0;background:var(--bg)}
+.offer-sec{padding:108px 0;background:linear-gradient(rgba(9,8,0,.93),rgba(9,8,0,.93)),url('assets/shot-restaurante.png') center/cover}
 .offer-sec .sec-head{text-align:center}
 .offer-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
 .offer-list{display:flex;flex-direction:column}
@@ -294,7 +284,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
 .faq-item.open .faq-a{max-height:320px}
 
 /* ══ FORMULÁRIO ══ */
-.form-sec{background:var(--bg2);padding:108px 0}
+.form-sec{background:linear-gradient(rgba(9,8,0,.93),rgba(9,8,0,.93)),url('assets/shot-chef.png') center/cover;padding:108px 0}
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
 .form-left .label-tag{display:block;margin-bottom:20px}
 .form-left h2{font-size:clamp(30px,4vw,50px);font-weight:900;color:#fff;letter-spacing:-.05em;line-height:1.0;margin-bottom:22px}
@@ -367,7 +357,6 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
   .num-item:nth-child(odd){border-right:1px solid var(--border)}
   .num-item:nth-child(even){border-right:none}
   .num-item:nth-last-child(-n+2){border-bottom:none}
-  .shots-grid{grid-template-columns:repeat(2,1fr)}
   .steps-grid{grid-template-columns:1fr;border-radius:10px}
 .team-layout{grid-template-columns:1fr;gap:44px}
   .team-img-wrap{max-width:400px;margin:0 auto}
@@ -617,35 +606,6 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
           <div class="step-item">Relatório de resultados</div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ BASTIDORES ══ -->
-<section class="shots-sec sec" id="bastidores">
-  <div class="wrap">
-    <div class="sec-head rv" style="text-align:center">
-      <div class="label-tag">Bastidores</div>
-      <h2 class="sec-title">É assim nos <span class="accent">bastidores.</span></h2>
-      <p class="sec-sub" style="margin:0 auto;text-align:center">Nos negócios dos nossos clientes, nos estúdios, nas ruas. Produção real.</p>
-    </div>
-  </div>
-  <div class="shots-grid">
-    <div class="shot-item rv d1">
-      <img src="assets/shot-gimbal.png" alt="Produção MeProduz. Studio — gravação com gimbal">
-      <span class="shot-label">Roteiro & Direção</span>
-    </div>
-    <div class="shot-item rv d2">
-      <img src="assets/shot-chef.png" alt="Produção MeProduz. Studio — gravação gastronômica">
-      <span class="shot-label">Na cozinha do cliente</span>
-    </div>
-    <div class="shot-item rv d3">
-      <img src="assets/shot-restaurante.png" alt="Produção MeProduz. Studio — gravação em restaurante">
-      <span class="shot-label">No espaço do cliente</span>
-    </div>
-    <div class="shot-item rv d4">
-      <img src="assets/shot-garagem.png" alt="Produção MeProduz. Studio — gravação cinematográfica">
-      <span class="shot-label">Direção no set</span>
     </div>
   </div>
 </section>
