@@ -60,10 +60,11 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
 .btn-ghost:hover{background:rgba(201,162,39,.07);border-color:var(--gold);transform:translateY(-2px)}
 
 /* ══ NAV ══ */
-.nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:20px 0;transition:var(--ease)}
-.nav.s{background:rgba(9,8,0,.96);backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);padding:13px 0;border-bottom:1px solid var(--border)}
+.nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:14px 0;transition:var(--ease)}
+.nav.s{background:rgba(9,8,0,.96);backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);padding:10px 0;border-bottom:1px solid var(--border)}
+.nav.s .nav-logo{height:64px}
 .nav-in{display:flex;align-items:center;justify-content:space-between}
-.nav-logo{height:120px;width:auto}
+.nav-logo{height:90px;width:auto;transition:height .4s cubic-bezier(.4,0,.2,1)}
 .nav-links{display:flex;align-items:center;gap:32px;list-style:none}
 .nav-links a{font-size:13px;font-weight:500;color:var(--muted);transition:color .2s;letter-spacing:.02em}
 .nav-links a:hover{color:var(--gold)}
@@ -200,12 +201,12 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
 .team-name-tag .tname{font-size:14px;font-weight:700;color:#fff;letter-spacing:-.01em}
 .team-name-tag .trole{font-size:10px;font-weight:500;color:var(--gold);letter-spacing:.08em;text-transform:uppercase;margin-top:2px}
 .team-content .label-tag{display:block;margin-bottom:20px}
-.team-img-wrap .label-tag{display:block;margin-bottom:14px}
-.team-content .sec-title{margin-bottom:28px}
-.team-content p{font-size:15px;color:var(--muted);line-height:1.82;margin-bottom:20px}
+.team-img-wrap .label-tag{display:block;margin-bottom:14px;text-align:center}
+.team-content .sec-title{margin-bottom:28px;text-align:center}
+.team-content p{font-size:15px;color:var(--muted);line-height:1.82;margin-bottom:20px;text-align:center}
 .team-content p:last-of-type{margin-bottom:0}
 .team-content strong{color:rgba(255,255,255,.85);font-weight:600}
-.team-divider{width:36px;height:2px;background:var(--gg);margin:32px 0}
+.team-divider{width:36px;height:2px;background:var(--gg);margin:32px auto}
 
 /* ══ OFERTA ══ */
 .offer-sec{padding:108px 0;background:var(--bg3)}
@@ -349,7 +350,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
   .hero-trust{flex-direction:column;gap:8px}
   .nums-grid{grid-template-columns:repeat(2,1fr)}
   .footer-in{grid-template-columns:1fr}
-  .nav-logo{height:88px}
+  .nav-logo{height:72px}
 }
 </style>
 </head>
@@ -617,7 +618,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
         <p>Quando você fecha com a MeProduz. Studio, você fala diretamente com quem vai produzir o seu vídeo, do primeiro contato até a entrega. <strong>Sem intermediário. Sem estagiário respondendo por nós.</strong></p>
         <p>A MeProduz. Studio tem estúdio próprio, exclusivo para clientes, com iluminação, cenário e equipamento prontos para produzir. Um espaço criado pra cada gravação ser mais prática e profissional.</p>
         <p>Porque toda empresa boa merece aparecer do jeito certo.</p>
-        <a href="#contato" class="btn-ghost" style="margin-top:32px">Vamos conversar →</a>
+        <a href="#contato" class="btn-ghost" style="margin-top:32px;display:inline-block;text-align:center">Vamos conversar →</a>
       </div>
     </div>
   </div>
