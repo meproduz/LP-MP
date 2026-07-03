@@ -166,6 +166,22 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
 
 
 
+/* ══ CTA PÓS-PORTFÓLIO ══ */
+@keyframes glow-green{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,.25)}60%{box-shadow:0 0 0 16px rgba(34,197,94,.05),0 8px 52px rgba(34,197,94,.45)}}
+.ptf-cta-wrap{text-align:center;padding:56px 0 72px;position:relative}
+.ptf-cta-tag{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.ptf-cta-tag::before,.ptf-cta-tag::after{content:'';width:28px;height:1px;background:linear-gradient(to right,transparent,rgba(201,162,39,.5))}
+.ptf-cta-tag::after{background:linear-gradient(to left,transparent,rgba(201,162,39,.5))}
+.ptf-cta-title{font-size:clamp(26px,4vw,48px);font-weight:900;letter-spacing:-.05em;color:#fff;margin-bottom:36px;line-height:1.05}
+.ptf-cta-title em{font-style:normal;background:var(--gg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.btn-cta-hero{display:inline-flex;align-items:center;gap:14px;padding:22px 52px;background:#22C55E;color:#000;font-size:17px;font-weight:900;border-radius:100px;border:none;cursor:pointer;font-family:'Outfit',sans-serif;letter-spacing:-.01em;transition:.3s cubic-bezier(.4,0,.2,1);text-decoration:none;animation:glow-green 2.8s ease infinite}
+.btn-cta-hero:hover{background:#16A34A;transform:translateY(-3px) scale(1.03);box-shadow:0 20px 60px rgba(34,197,94,.45);animation:none}
+.btn-cta-hero svg{transition:transform .25s}
+.btn-cta-hero:hover svg{transform:translateX(5px)}
+.ptf-trust{margin-top:20px;font-size:12px;color:var(--dim);display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
+.ptf-trust span{display:flex;align-items:center;gap:6px}
+.ptf-trust span::before{content:'';width:4px;height:4px;border-radius:50%;background:rgba(34,197,94,.5)}
+
 /* ══ PORTFÓLIO ══ */
 .ptf-sec{padding:108px 0;background:var(--bg2)}
 .ptf-sec .sec-head{text-align:center}
@@ -551,8 +567,20 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
     </div>
   </div>
   <div class="wrap"><div class="ptv-nav"><button class="ptv-btn" onclick="ptvNav(-1)">&#8592;</button><span class="ptv-nav-hint">Deslize para ver mais</span><button class="ptv-btn" onclick="ptvNav(1)">&#8594;</button></div></div>
-  <div class="wrap" style="text-align:center;padding:48px 0 0">
-    <a href="#contato" class="btn-gold">Quero vídeos assim para minha empresa →</a>
+  <div class="wrap">
+    <div class="ptf-cta-wrap rv">
+      <div class="ptf-cta-tag">Gostou do que viu?</div>
+      <h3 class="ptf-cta-title">Esse vídeo pode ser sobre<br><em>a sua empresa.</em></h3>
+      <a href="#contato" class="btn-cta-hero">
+        Quero meu diagnóstico gratuito
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+      <div class="ptf-trust">
+        <span>100% gratuito</span>
+        <span>Sem compromisso</span>
+        <span>Resposta em 24h</span>
+      </div>
+    </div>
   </div>
 </section>
 
