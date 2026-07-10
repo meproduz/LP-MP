@@ -1,5 +1,0 @@
-{
-  "rewrites": [
-    { "source": "/lp2", "destination": "/lp2.html" }
-  ]
-}
