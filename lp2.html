@@ -852,10 +852,10 @@ async function sub2(e){
       body:JSON.stringify({
         cliente_id:'4aadcf01-09c5-4873-9c86-00dffdbe4a74',
         nome:document.getElementById('nome2').value.trim(),
-        telefone:document.getElementById('wapp2').value.trim(),
-        dificuldade:document.getElementById('dif2').value.trim(),
-        observacao:'Segmento: '+document.getElementById('negocio2').value.trim()+' | '+document.getElementById('dif2').value.trim(),
-        origem:'landing_v2_meproduz',
+        tel:document.getElementById('wapp2').value.trim(),
+        seg:document.getElementById('negocio2').value.trim(),
+        obs:document.getElementById('dif2').value.trim(),
+        orig:'landing_v2_meproduz',
         status:'novo'
       })
     });
